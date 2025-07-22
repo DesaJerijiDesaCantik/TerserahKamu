@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Permata Jeriji</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 220px;
+      background-color: #ffffff;
+      border-right: 1px solid #ccc;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+      padding-top: 20px;
+      z-index: 1001;
+    }
+
+    .sidebar-title {
+      text-align: left;
+      font-size: 20px;
+      font-weight: bold;
+      color: #112d4e;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #sidebar ul {
+      list-style: none;
+    }
+
+    #sidebar ul li a {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      color: #3f72af;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    #sidebar ul li a i {
+      margin-right: 10px;
+      min-width: 20px;
+    }
+
+    #sidebar ul li a:hover {
+      background-color: #f1f1f1;
+    }
+
+    #sidebar ul li a.active {
+      background-color: #3f72af;
+      color: white;
+    }
+
+    /* Navbar Bottom */
+    #navbarBottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #3f72af;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      font-size: 14px;
+    }
+
+    /* Main Content */
+    #mainContent {
+      margin-left: 220px;
+      padding: 80px 20px 100px; /* padding bawah untuk hindari ketutup navbar */
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: calc(100vh - 100px);
+      padding: 40px 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    /* Slider 2 kolom */
+    .slider-container-2col {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-left: 4px solid #3f72af;
+      border-radius: 8px;
+      flex-wrap: nowrap;
+    }
+
+    .slider-container-2col .left-col {
+      flex: 0 0 30%;
+    }
+
+    .slider-container-2col .right-col {
+      flex: 0 0 70%;
+    }
+
+    .slider-container-2col .left-col img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive Breakpoint */
+    @media (max-width: 768px) {
+      #sidebar {
+        width: 180px;
+      }
+
+      #mainContent {
+        margin-left: 180px;
+        padding-bottom: 120px; /* lebih besar di HP */
+      }
+
+      .slider-container-2col {
+        flex-direction: column;
+      }
+
+      .slider-container-2col .left-col,
+      .slider-container-2col .right-col {
+        flex: 1 1 100%;
+      }
+
+      .slider-container-2col .left-col img {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #sidebar {
+        display: none; /* bisa disembunyikan di layar kecil */
+      }
+
+      #mainContent {
+        margin-left: 0;
+        padding-top: 60px;
+        padding-bottom: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-title">Desa Jeriji</div>
+    <div class="sidebar-title">Desa Cantik</div>
+    <ul>
+      <li><a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+      <li><a href="https://jeriji.digitaldesa.id/d/lala"><i class="fas fa-gem"></i> Permata Jeriji</a></li>
+      <li><a href="#galeri"><i class="fas fa-images"></i> Galeri</a></li>
+      <li><a href="#agenstatistik"><i class="fas fa-user-tie"></i> Agen Statistik</a></li>
+      <li><a href="#kilasbalik"><i class="fas fa-history"></i> Perjalanan Desa Cantik</a></li>
+    </ul>
+  </div>
+
+  <!-- Navbar Bawah -->
+  <div id="navbarBottom">&copy; 2025 Permata Jeriji</div>
+
+  <!-- Konten -->
+  <div id="mainContent">
+    <!-- Beranda -->
+    <div id="home" class="content-section active">
+      <h2>Selamat Datang di Halaman Desa Cantik Desa Jeriji</h2>
+
+      <!-- Bagian 2 Kolom -->
+      <div class="slider-container-2col">
+        <div class="left-col">
+          <img src="https://www.klampok.id/wp-content/uploads/2025/05/DES-CAN.jpg" alt="Foto Desa Jeriji">
+        </div>
+        <div class="right-col">
+          <p style="line-height: 1.6; font-size: 16px;">
+            <strong>Desa Cantik</strong> atau <strong>Desa Cinta Statistik</strong> merupakan program inovatif dari 
+            Badan Pusat Statistik (BPS) yang bertujuan untuk mempercepat penguatan statistik sektoral di tingkat desa. 
+            Program ini mendorong pemerintah desa agar lebih cakap dalam mengelola dan memanfaatkan data statistik 
+            sebagai bagian dari upaya mewujudkan <em>Satu Data Desa Indonesia</em>, yakni sistem data yang terintegrasi, akurat, dan terpercaya.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tambahan 1 Kolom (di bawah) -->
+      <div style="margin-top: 30px; font-size: 16px; line-height: 1.6;">
+        <p>
+          Desa dan kelurahan kini tidak lagi diposisikan hanya sebagai <em>objek pembangunan</em>, 
+          melainkan telah bertransformasi menjadi <em>subjek sekaligus ujung tombak</em> dalam mewujudkan pembangunan yang berkelanjutan 
+          dan berorientasi pada peningkatan kesejahteraan masyarakat. Dalam konteks ini, penyediaan data yang akurat dan mutakhir 
+          di tingkat desa/kelurahan menjadi kunci utama dalam mendukung perencanaan, pengambilan keputusan, serta evaluasi 
+          program-program pemerintah secara lebih tepat sasaran.
+        </p>
+      </div>
+    </div>
+
+    <!-- Permata Jeriji -->
+    <div id="permatajeriji" class="content-section">
+      <iframe src="https://online.fliphtml5.com/vbeel/avkp/"
+              sandbox="allow-scripts allow-same-origin"
+              allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Galeri -->
+    <div id="galeri" class="content-section">
+      <h2>Galeri</h2>
+      <p>Konten galeri akan ditampilkan di sini.</p>
+    </div>
+
+    <!-- Agen Statistik -->
+    <div id="agenstatistik" class="content-section">
+      <h2>Agen Statistik</h2>
+      <p>Informasi tentang agen statistik akan dimuat di sini.</p>
+    </div>
+
+    <!-- Kilas Balik -->
+    <div id="kilasbalik" class="content-section">
+      <h2>Perjalanan Desa Cantik</h2>
+      <p>Sejarah dan perjalanan program akan dimuat di sini.</p>
+    </div>
+  </div>
+
+  <!-- Script untuk navigasi sidebar -->
+  <script>
+    const links = document.querySelectorAll('#sidebar a');
+    const sections = document.querySelectorAll('.content-section');
+
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(targetId)?.classList.add('active');
+
+        links.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
