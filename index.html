@@ -135,43 +135,6 @@
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    .menu-scroll-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  margin-top: 30px;
-  padding-bottom: 10px;
-  scroll-behavior: smooth;
-}
-
-.menu-box {
-  flex: 0 0 auto;
-  min-width: 200px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.menu-box:hover {
-  transform: translateY(-5px);
-}
-
-.menu-box i {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #3f72af;
-}
-
-.menu-box span {
-  font-weight: bold;
-  font-size: 16px;
-  color: #333;
-}
-
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -249,27 +212,7 @@
        style="width: 240px; margin-bottom: 20px;" />
   <h2>Selamat Datang di Halaman Desa Cantik Desa Jeriji</h2>
   <p style="margin: 10px 0 30px; font-size: 16px; color: #555;">Pusat informasi statistik dan potensi Desa Jeriji.</p>
-<div class="menu-scroll-container">
-  <div class="menu-box" onclick="navigateTo('permata')">
-    <i class="fas fa-gem"></i>
-    <span>Permata Jeriji</span>
-  </div>
-  <div class="menu-box" onclick="navigateTo('galeri')">
-    <i class="fas fa-images"></i>
-    <span>Galeri</span>
-  </div>
-  <div class="menu-box" onclick="navigateTo('agenstatistik')">
-    <i class="fas fa-user-tie"></i>
-    <span>Agen Statistik</span>
-  </div>
-  <div class="menu-box" onclick="navigateTo('perjalanan')">
-    <i class="fas fa-route"></i>
-    <span>Perjalanan Desa Cantik</span>
-  </div>
-</div>
 
-  
-  
 <!-- Permata Jeriji -->
 <div id="permata" class="content-section">
   <iframe 
