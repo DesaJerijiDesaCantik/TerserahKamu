@@ -190,20 +190,20 @@
     }
 
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      #sidebar {
-        top: 0;
-        left: 0;
-        transform: none;
-        width: 100%;
-        height: auto;
-        position: fixed;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding-top: 10px;
+    @media (max-width: 600px) {
+      .menu-link {
+        min-width: 140px;
+       }
+
+      .menu-box {
+        padding: 16px;
       }
+
+      .menu-box .menu-icon {
+        font-size: 24px;
+      }
+    }
+
 
       #sidebar ul {
         display: flex;
@@ -270,38 +270,36 @@
     <h2>Selamat Datang di Halaman Desa Jeriji Desa Cantik</h2>
     <p style="margin: 10px 0 30px; font-size: 16px; color: #555;">Desa Cinta Statistik Kabupaten Bangka Selatan</p>
   </div>
+
 <!-- Slider Menu -->
-<div style="overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;">
-  <div style="
-    display: flex;
-    gap: 20px;
-    padding-bottom: 5px;
-    min-width: max-content;
-    scroll-behavior: smooth;
-  ">
+<div class="slider-wrapper">
+  <div class="slider-scroll">
     <!-- Menu 1 -->
-    <a href="#permatajeriji" style="min-width: 180px; text-decoration: none;">
+    <a href="#permatajeriji" class="menu-link">
       <div class="menu-box">
         <div class="menu-icon"><i class="fas fa-gem"></i></div>
         <div class="menu-text">Permata Jeriji</div>
       </div>
     </a>
+
     <!-- Menu 2 -->
-   <a href="#galeri" style="min-width: 180px; text-decoration: none;">
+    <a href="#galeri" class="menu-link">
       <div class="menu-box">
         <div class="menu-icon"><i class="fas fa-images"></i></div>
         <div class="menu-text">Galeri</div>
       </div>
     </a>
+
     <!-- Menu 3 -->
-    <a href="#agenstatistik" style="min-width: 180px; text-decoration: none;">
+    <a href="#agenstatistik" class="menu-link">
       <div class="menu-box">
         <div class="menu-icon"><i class="fas fa-user-tie"></i></div>
         <div class="menu-text">Agen Statistik</div>
       </div>
     </a>
+
     <!-- Menu 4 -->
-    <a href="#kilasbalik" style="min-width: 180px; text-decoration: none;">
+    <a href="#kilasbalik" class="menu-link">
       <div class="menu-box">
         <div class="menu-icon"><i class="fas fa-route"></i></div>
         <div class="menu-text">Perjalanan Desa Cantik</div>
