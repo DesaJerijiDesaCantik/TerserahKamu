@@ -30,13 +30,16 @@
       z-index: 1001;
     }
 
+    #sidebar.hidden {
+      display: none;
+    }
+
     .sidebar-title {
       text-align: left;
       font-size: 20px;
       font-weight: bold;
       color: #112d4e;
       padding: 0px 20px;
-      /* border-bottom: 1px solid #ccc; */
     }
 
     #sidebar ul {
@@ -56,6 +59,7 @@
     #sidebar ul li a i {
       margin-right: 10px;
       min-width: 20px;
+      color: #3f72af;
     }
 
     #sidebar ul li a:hover {
@@ -64,6 +68,10 @@
 
     #sidebar ul li a.active {
       background-color: #3f72af;
+      color: white;
+    }
+
+    #sidebar ul li a.active i {
       color: white;
     }
 
@@ -86,7 +94,7 @@
     /* Main Content */
     #mainContent {
       margin-left: 220px;
-      padding: 40px 20px 100px;
+      padding: 80px 20px 100px;
     }
 
     .content-section {
@@ -94,13 +102,7 @@
     }
 
     .content-section.active {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: calc(100vh - 100px);
-      padding: 40px 20px;
+      display: block;
     }
 
     iframe {
@@ -109,78 +111,58 @@
       border: none;
     }
 
-    /* Slider 2 kolom */
-    .slider-container-2col {
+    /* Kotak Menu Beranda */
+    .menu-container-scroll {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       margin-top: 30px;
-      background-color: #f9f9f9;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .menu-box {
+      min-width: 200px;
+      background-color: #f4f4f4;
+      border-radius: 10px;
       padding: 20px;
-      border-left: 4px solid #3f72af;
-      border-radius: 8px;
-      flex-wrap: nowrap;
+      text-align: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    .slider-container-2col .left-col {
-      flex: 0 0 30%;
+    .menu-box:hover {
+      transform: translateY(-5px);
     }
 
-    .slider-container-2col .right-col {
-      flex: 0 0 70%;
+    .menu-box i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #3f72af;
     }
 
-    .slider-container-2col .left-col img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    .menu-box span {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
     }
 
-    /* Responsive */
+    .logo-desa {
+      width: 120px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
     @media (max-width: 768px) {
       #sidebar {
-        top: 0;
-        left: 0;
-        transform: none;
-        width: 100%;
-        height: auto;
-        position: fixed;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding-top: 10px;
-      }
-
-      #sidebar ul {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        padding: 0 10px;
-      }
-
-      #sidebar ul li {
-        flex: 1;
-      }
-
-      #sidebar ul li a {
-        justify-content: center;
-        font-size: 13px;
-        padding: 10px;
+        display: none;
       }
 
       #mainContent {
         margin-left: 0;
         padding-top: 80px;
-        padding-bottom: 120px;
-      }
-
-      .slider-container-2col {
-        flex-direction: column;
-      }
-
-      .slider-container-2col .left-col,
-      .slider-container-2col .right-col {
-        flex: 1 1 100%;
+        padding-bottom: 100px;
       }
     }
   </style>
@@ -192,11 +174,9 @@
     <div class="sidebar-title">Desa Jeriji</div>
     <div class="sidebar-title">Desa Cantik</div>
     <ul>
-      <li><a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a></li>
-      <li><a href="#permatajeriji"><i class="fas fa-gem"></i> Permata Jeriji</a></li>
-      <li><a href="#galeri"><i class="fas fa-images"></i> Galeri</a></li>
-      <li><a href="#agenstatistik"><i class="fas fa-user-tie"></i> Agen Statistik</a></li>
-      <li><a href="#kilasbalik"><i class="fas fa-route"></i> Perjalanan Desa Cantik</a></li>
+      <li><a href="#permata" data-target="permata"><i class="fas fa-gem"></i> Permata Jeriji</a></li>
+      <li><a href="#galeri" data-target="galeri"><i class="fas fa-images"></i> Galeri</a></li>
+      <li><a href="#agenstatistik" data-target="agenstatistik"><i class="fas fa-user-tie"></i> Agen Statistik</a></li>
     </ul>
   </div>
 
@@ -205,81 +185,30 @@
 
   <!-- Konten Utama -->
   <div id="mainContent">
-<!-- Beranda -->
-<div id="home" class="content-section active">
-  <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" 
-       alt="Logo Desa Cantik" 
-       style="width: 240px; margin-bottom: 20px;" />
-  <h2>Selamat Datang di Halaman Desa Cantik Desa Jeriji</h2>
-  <p style="margin: 10px 0 30px; font-size: 16px; color: #555;">Pusat informasi statistik dan potensi Desa Jeriji.</p>
+    <!-- Beranda -->
+    <div id="home" class="content-section active">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" class="logo-desa" alt="Logo Desa Cantik">
+      <h2 style="text-align: center; margin-bottom: 30px;">Selamat Datang di Halaman Desa Cantik Desa Jeriji</h2>
 
-<!-- Permata Jeriji -->
-<div id="permata" class="content-section">
-  <iframe 
-    src="https://online.fliphtml5.com/vbeel/avkp/" 
-    width="100%" 
-    height="600" 
-    style="border: none;">
-  </iframe>
-  </div>
-  
-  <!-- Kotak Container -->
-  <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 900px; margin: 0 auto;">
-    <div style="overflow-x: auto;">
-      <div style="display: flex; gap: 20px; min-width: 700px; padding-bottom: 5px;">
-        
-        <!-- Menu 1: Permata Jeriji -->
-        <a href="#permatajeriji" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-gem"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Permata Jeriji</div>
-          </div>
-        </a>
-
-        <!-- Menu 2: Galeri -->
-        <a href="#galeri" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-images"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Galeri</div>
-          </div>
-        </a>
-
-        <!-- Menu 3: Agen Statistik -->
-        <a href="#agenstatistik" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-user-tie"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Agen Statistik</div>
-          </div>
-        </a>
-
-        <!-- Menu 4: Perjalanan Desa Cantik -->
-        <a href="#kilasbalik" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-route"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Perjalanan Desa Cantik</div>
-          </div>
-        </a>
-
+      <div class="menu-container-scroll">
+        <div class="menu-box" onclick="navigateTo('permata')">
+          <i class="fas fa-gem"></i>
+          <span>Permata Jeriji</span>
+        </div>
+        <div class="menu-box" onclick="navigateTo('galeri')">
+          <i class="fas fa-images"></i>
+          <span>Galeri</span>
+        </div>
+        <div class="menu-box" onclick="navigateTo('agenstatistik')">
+          <i class="fas fa-user-tie"></i>
+          <span>Agen Statistik</span>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
 
     <!-- Permata Jeriji -->
-    <div id="permatajeriji" class="content-section">
-      <iframe src="https://online.fliphtml5.com/vbeel/avkp/"
-              sandbox="allow-scripts allow-same-origin"
-              allowfullscreen>
-      </iframe>
+    <div id="permata" class="content-section">
+      <iframe src="https://online.fliphtml5.com/vbeel/avkp/" sandbox="allow-scripts allow-same-origin" allowfullscreen></iframe>
     </div>
 
     <!-- Galeri -->
@@ -293,55 +222,39 @@
       <h2>Agen Statistik</h2>
       <p>Informasi tentang agen statistik akan dimuat di sini.</p>
     </div>
-
-    <!-- Kilas Balik -->
-    <div id="kilasbalik" class="content-section">
-      <h2>Kilas Balik Desa Cantik</h2>
-      <p>Sejarah dan perjalanan program akan dimuat di sini.</p>
-    </div>
   </div>
 
   <!-- Script Navigasi -->
-<script>
-  const links = document.querySelectorAll('a[href^="#"]'); // Tangani SEMUA link internal, bukan hanya sidebar
-  const sections = document.querySelectorAll('.content-section');
-  const sidebar = document.getElementById('sidebar');
-  const mainContent = document.getElementById('mainContent');
+  <script>
+    const links = document.querySelectorAll('#sidebar a');
+    const sections = document.querySelectorAll('.content-section');
+    const sidebar = document.getElementById('sidebar');
 
-  links.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
+    function navigateTo(id) {
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(id)?.classList.add('active');
 
-      if (targetSection) {
-        e.preventDefault();
+      links.forEach(link => link.classList.remove('active'));
+      document.querySelector(`#sidebar a[data-target="${id}"]`)?.classList.add('active');
 
-        // Tampilkan konten yang sesuai
-        sections.forEach(section => section.classList.remove('active'));
-        targetSection.classList.add('active');
-
-        // Ubah menu yang aktif (khusus sidebar)
-        document.querySelectorAll('#sidebar a').forEach(link => link.classList.remove('active'));
-        const sidebarLink = document.querySelector(`#sidebar a[href="#${targetId}"]`);
-        if (sidebarLink) {
-          sidebarLink.classList.add('active');
-        }
-
-        // Tampilkan/hide sidebar tergantung halaman
-        if (targetId === 'home') {
-          sidebar.style.display = 'none';
-          mainContent.style.marginLeft = '0';
-        } else {
-          sidebar.style.display = 'block';
-          mainContent.style.marginLeft = '220px';
-        }
+      if (id === 'home') {
+        sidebar.classList.add('hidden');
+      } else {
+        sidebar.classList.remove('hidden');
       }
-    });
-  });
+    }
 
-  // Sembunyikan sidebar saat awal load jika di beranda
-  window.addEventListener('DOMContentLoaded', () => {
-    sidebar.style.display = 'none';
-    mainContent.style.marginLeft = '0';
-  });
-</script>
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('data-target');
+        navigateTo(targetId);
+      });
+    });
+
+    // Beranda = default, sembunyikan sidebar
+    navigateTo('home');
+  </script>
+
+</body>
+</html>
