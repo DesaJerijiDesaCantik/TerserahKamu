@@ -35,8 +35,8 @@
       font-size: 20px;
       font-weight: bold;
       color: #112d4e;
-      padding: 10px 20px;
-      border-bottom: 1px solid #ccc;
+      padding: 0px 20px;
+      /* border-bottom: 1px solid #ccc; */
     }
 
     #sidebar ul {
@@ -67,7 +67,7 @@
       color: white;
     }
 
-    /* Navbar Bottom */
+    /* Navbar Bawah */
     #navbarBottom {
       position: fixed;
       bottom: 0;
@@ -86,7 +86,7 @@
     /* Main Content */
     #mainContent {
       margin-left: 220px;
-      padding: 80px 20px 100px; /* padding bawah untuk hindari ketutup navbar */
+      padding: 80px 20px 100px;
     }
 
     .content-section {
@@ -136,15 +136,42 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Responsive Breakpoint */
+    /* Responsive */
     @media (max-width: 768px) {
       #sidebar {
-        width: 180px;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding-top: 10px;
+      }
+
+      #sidebar ul {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0 10px;
+      }
+
+      #sidebar ul li {
+        flex: 1;
+      }
+
+      #sidebar ul li a {
+        justify-content: center;
+        font-size: 13px;
+        padding: 10px;
       }
 
       #mainContent {
-        margin-left: 180px;
-        padding-bottom: 120px; /* lebih besar di HP */
+        margin-left: 0;
+        padding-top: 80px;
+        padding-bottom: 120px;
       }
 
       .slider-container-2col {
@@ -154,22 +181,6 @@
       .slider-container-2col .left-col,
       .slider-container-2col .right-col {
         flex: 1 1 100%;
-      }
-
-      .slider-container-2col .left-col img {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #sidebar {
-        display: none; /* bisa disembunyikan di layar kecil */
-      }
-
-      #mainContent {
-        margin-left: 0;
-        padding-top: 60px;
-        padding-bottom: 120px;
       }
     }
   </style>
@@ -182,23 +193,21 @@
     <div class="sidebar-title">Desa Cantik</div>
     <ul>
       <li><a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a></li>
-      <li><a href="https://jeriji.digitaldesa.id/d/lala"><i class="fas fa-gem"></i> Permata Jeriji</a></li>
+      <li><a href="#permatajeriji"><i class="fas fa-gem"></i> Permata Jeriji</a></li>
       <li><a href="#galeri"><i class="fas fa-images"></i> Galeri</a></li>
       <li><a href="#agenstatistik"><i class="fas fa-user-tie"></i> Agen Statistik</a></li>
-      <li><a href="#kilasbalik"><i class="fas fa-history"></i> Perjalanan Desa Cantik</a></li>
+      <li><a href="#kilasbalik"><i class="fas fa-history"></i> Kilas Balik</a></li>
     </ul>
   </div>
 
   <!-- Navbar Bawah -->
   <div id="navbarBottom">&copy; 2025 Permata Jeriji</div>
 
-  <!-- Konten -->
+  <!-- Konten Utama -->
   <div id="mainContent">
     <!-- Beranda -->
     <div id="home" class="content-section active">
       <h2>Selamat Datang di Halaman Desa Cantik Desa Jeriji</h2>
-
-      <!-- Bagian 2 Kolom -->
       <div class="slider-container-2col">
         <div class="left-col">
           <img src="https://www.klampok.id/wp-content/uploads/2025/05/DES-CAN.jpg" alt="Foto Desa Jeriji">
@@ -208,19 +217,15 @@
             <strong>Desa Cantik</strong> atau <strong>Desa Cinta Statistik</strong> merupakan program inovatif dari 
             Badan Pusat Statistik (BPS) yang bertujuan untuk mempercepat penguatan statistik sektoral di tingkat desa. 
             Program ini mendorong pemerintah desa agar lebih cakap dalam mengelola dan memanfaatkan data statistik 
-            sebagai bagian dari upaya mewujudkan <em>Satu Data Desa Indonesia</em>, yakni sistem data yang terintegrasi, akurat, dan terpercaya.
+            sebagai bagian dari upaya mewujudkan <em>Satu Data Desa Indonesia</em>.
           </p>
         </div>
       </div>
-
-      <!-- Tambahan 1 Kolom (di bawah) -->
       <div style="margin-top: 30px; font-size: 16px; line-height: 1.6;">
         <p>
-          Desa dan kelurahan kini tidak lagi diposisikan hanya sebagai <em>objek pembangunan</em>, 
-          melainkan telah bertransformasi menjadi <em>subjek sekaligus ujung tombak</em> dalam mewujudkan pembangunan yang berkelanjutan 
-          dan berorientasi pada peningkatan kesejahteraan masyarakat. Dalam konteks ini, penyediaan data yang akurat dan mutakhir 
-          di tingkat desa/kelurahan menjadi kunci utama dalam mendukung perencanaan, pengambilan keputusan, serta evaluasi 
-          program-program pemerintah secara lebih tepat sasaran.
+          Desa dan kelurahan kini tidak lagi hanya sebagai <em>objek pembangunan</em>, 
+          melainkan telah menjadi <em>subjek sekaligus ujung tombak</em> pembangunan yang berkelanjutan. 
+          Penyediaan data yang akurat dan mutakhir menjadi kunci mendukung kebijakan pemerintah yang tepat sasaran.
         </p>
       </div>
     </div>
@@ -247,12 +252,12 @@
 
     <!-- Kilas Balik -->
     <div id="kilasbalik" class="content-section">
-      <h2>Perjalanan Desa Cantik</h2>
+      <h2>Kilas Balik Desa Cantik</h2>
       <p>Sejarah dan perjalanan program akan dimuat di sini.</p>
     </div>
   </div>
 
-  <!-- Script untuk navigasi sidebar -->
+  <!-- Script Navigasi -->
   <script>
     const links = document.querySelectorAll('#sidebar a');
     const sections = document.querySelectorAll('.content-section');
