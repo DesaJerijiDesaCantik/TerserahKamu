@@ -135,6 +135,36 @@
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+    .menu-box {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: center;
+      scroll-snap-align: start;
+      color: #3f72af;
+      transition: all 0.3s ease;
+    }
+
+    .menu-box .menu-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #3f72af;
+    }
+
+    .menu-box .menu-text {
+      font-weight: 600;
+      color: #3f72af;
+    }
+
+    .menu-box.active-menu-box {
+      background-color: #3f72af;
+    }
+
+    .menu-box.active-menu-box .menu-icon,
+    .menu-box.active-menu-box .menu-text {
+      color: white;
+    }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -226,59 +256,43 @@
   </iframe>
   </div>
   
-  <!-- Kotak Container -->
-  <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 900px; margin: 0 auto;">
-    <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;">
-      <div style="
-    display: flex;
-    gap: 20px;
-    padding-bottom: 5px;
-    min-width: max-content;
-    scroll-behavior: smooth;
-  ">
+ <!-- Kotak Container -->
+<div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 900px; margin: 0 auto;">
+  <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;">
+    <div style="display: flex; gap: 20px; padding-bottom: 5px; min-width: max-content; scroll-behavior: smooth;">
 
-        
-        <!-- Menu 1: Permata Jeriji -->
-        <a href="#permatajeriji" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center; scroll-snap-align: start;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-gem"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Permata Jeriji</div>
-          </div>
-        </a>
+      <!-- Menu 1: Permata Jeriji -->
+      <a href="#permatajeriji" style="min-width: 180px; text-decoration: none;">
+        <div class="menu-box">
+          <div class="menu-icon"><i class="fas fa-gem"></i></div>
+          <div class="menu-text">Permata Jeriji</div>
+        </div>
+      </a>
 
-        <!-- Menu 2: Galeri -->
-        <a href="#galeri" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center; scroll-snap-align: start;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-images"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Galeri</div>
-          </div>
-        </a>
+      <!-- Menu 2: Galeri -->
+      <a href="#galeri" style="min-width: 180px; text-decoration: none;">
+        <div class="menu-box">
+          <div class="menu-icon"><i class="fas fa-images"></i></div>
+          <div class="menu-text">Galeri</div>
+        </div>
+      </a>
 
-        <!-- Menu 3: Agen Statistik -->
-        <a href="#agenstatistik" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center; scroll-snap-align: start;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-user-tie"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Agen Statistik</div>
-          </div>
-        </a>
+      <!-- Menu 3: Agen Statistik -->
+      <a href="#agenstatistik" style="min-width: 180px; text-decoration: none;">
+        <div class="menu-box">
+          <div class="menu-icon"><i class="fas fa-user-tie"></i></div>
+          <div class="menu-text">Agen Statistik</div>
+        </div>
+      </a>
 
-        <!-- Menu 4: Perjalanan Desa Cantik -->
-        <a href="#kilasbalik" style="min-width: 180px; text-decoration: none;">
-          <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); padding: 20px; text-align: center; scroll-snap-align: start;">
-            <div style="font-size: 28px; color: #3f72af; margin-bottom: 10px;">
-              <i class="fas fa-route"></i>
-            </div>
-            <div style="font-weight: 600; color: #3f72af;">Perjalanan Desa Cantik</div>
-          </div>
-        </a>
+      <!-- Menu 4: Perjalanan Desa Cantik -->
+      <a href="#kilasbalik" style="min-width: 180px; text-decoration: none;">
+        <div class="menu-box">
+          <div class="menu-icon"><i class="fas fa-route"></i></div>
+          <div class="menu-text">Perjalanan Desa Cantik</div>
+        </div>
+      </a>
 
-      </div>
     </div>
   </div>
 </div>
@@ -353,5 +367,44 @@
   window.addEventListener('DOMContentLoaded', () => {
     sidebar.style.display = 'none';
     mainContent.style.marginLeft = '0';
+  });
+</script>
+<script>
+  const menuBoxes = document.querySelectorAll('.menu-box');
+
+  menuBoxes.forEach(box => {
+    box.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Hapus class aktif dari semua kotak
+      menuBoxes.forEach(b => b.classList.remove('active-menu-box'));
+
+      // Tambahkan class aktif ke yang diklik
+      this.classList.add('active-menu-box');
+
+      // Arahkan ke bagian yang sesuai dari href parent <a>
+      const href = this.parentElement.getAttribute('href');
+      const targetId = href.replace('#', '');
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+        targetSection.classList.add('active');
+
+        // Sidebar logic
+        if (targetId === 'home') {
+          sidebar.style.display = 'none';
+          mainContent.style.marginLeft = '0';
+        } else {
+          sidebar.style.display = 'block';
+          mainContent.style.marginLeft = '220px';
+        }
+
+        // Sidebar menu aktif juga ikut berubah
+        document.querySelectorAll('#sidebar a').forEach(link => link.classList.remove('active'));
+        const sidebarLink = document.querySelector(`#sidebar a[href="#${targetId}"]`);
+        if (sidebarLink) sidebarLink.classList.add('active');
+      }
+    });
   });
 </script>
