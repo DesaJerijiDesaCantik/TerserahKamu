@@ -144,6 +144,7 @@
       scroll-snap-align: start;
       color: #3f72af;
       transition: all 0.3s ease;
+      cursor: pointer;
     }
 
     .menu-box .menu-icon {
@@ -157,14 +158,16 @@
       color: #3f72af;
     }
 
-    .menu-box.active-menu-box {
+    /* Efek Hover */
+    .menu-box:hover {
       background-color: #3f72af;
     }
 
-    .menu-box.active-menu-box .menu-icon,
-    .menu-box.active-menu-box .menu-text {
+    .menu-box:hover .menu-icon,
+    .menu-box:hover .menu-text {
       color: white;
     }
+
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -367,44 +370,5 @@
   window.addEventListener('DOMContentLoaded', () => {
     sidebar.style.display = 'none';
     mainContent.style.marginLeft = '0';
-  });
-</script>
-<script>
-  const menuBoxes = document.querySelectorAll('.menu-box');
-
-  menuBoxes.forEach(box => {
-    box.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      // Hapus class aktif dari semua kotak
-      menuBoxes.forEach(b => b.classList.remove('active-menu-box'));
-
-      // Tambahkan class aktif ke yang diklik
-      this.classList.add('active-menu-box');
-
-      // Arahkan ke bagian yang sesuai dari href parent <a>
-      const href = this.parentElement.getAttribute('href');
-      const targetId = href.replace('#', '');
-      const targetSection = document.getElementById(targetId);
-
-      if (targetSection) {
-        document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
-        targetSection.classList.add('active');
-
-        // Sidebar logic
-        if (targetId === 'home') {
-          sidebar.style.display = 'none';
-          mainContent.style.marginLeft = '0';
-        } else {
-          sidebar.style.display = 'block';
-          mainContent.style.marginLeft = '220px';
-        }
-
-        // Sidebar menu aktif juga ikut berubah
-        document.querySelectorAll('#sidebar a').forEach(link => link.classList.remove('active'));
-        const sidebarLink = document.querySelector(`#sidebar a[href="#${targetId}"]`);
-        if (sidebarLink) sidebarLink.classList.add('active');
-      }
-    });
   });
 </script>
