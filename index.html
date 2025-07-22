@@ -292,23 +292,38 @@
   </div>
 
   <!-- Script Navigasi -->
-  <script>
-    const links = document.querySelectorAll('#sidebar a');
-    const sections = document.querySelectorAll('.content-section');
+<script>
+  const links = document.querySelectorAll('#sidebar a');
+  const sections = document.querySelectorAll('.content-section');
+  const sidebar = document.getElementById('sidebar');
 
-    links.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
+  links.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
 
-        sections.forEach(section => section.classList.remove('active'));
-        document.getElementById(targetId)?.classList.add('active');
+      // Tampilkan konten yang sesuai
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(targetId)?.classList.add('active');
 
-        links.forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
-      });
+      // Ubah menu yang aktif
+      links.forEach(link => link.classList.remove('active'));
+      this.classList.add('active');
+
+      // Sembunyikan sidebar jika halaman beranda, tampilkan jika bukan
+      if (targetId === 'home') {
+        sidebar.style.display = 'none';
+        document.getElementById('mainContent').style.marginLeft = '0';
+      } else {
+        sidebar.style.display = 'block';
+        document.getElementById('mainContent').style.marginLeft = '220px';
+      }
     });
-  </script>
+  });
 
-</body>
-</html>
+  // Saat pertama kali halaman dimuat, pastikan sidebar disembunyikan jika halaman #home
+  window.addEventListener('DOMContentLoaded', () => {
+    sidebar.style.display = 'none';
+    document.getElementById('mainContent').style.marginLeft = '0';
+  });
+</script>
