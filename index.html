@@ -220,6 +220,51 @@
     font-weight: bold;
     text-decoration: none;
   }
+  /* Slider Agen Statistik */
+.agen-slider-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.agen-slider-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+.agen-card {
+  flex: 0 0 200px;
+  margin-right: 20px;
+  text-align: center;
+}
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.slider-btn {
+  background-color: rgba(63, 114, 175, 0.8);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+  background-color: rgba(63, 114, 175, 1);
+}
+
   </style>
 </head>
 <body>
@@ -506,9 +551,78 @@
 
     <!-- Agen Statistik -->
     <div id="agenstatistik" class="content-section">
-      <h2>Agen Statistik</h2>
-      <p>Informasi tentang agen statistik akan dimuat di sini.</p>
+     <h2 style="color: #3f72af; font-size: 28px; font-weight: bold; text-align: center;">Agen Statistik Desa Jeriji</h2>
+
+<div class="agen-slider-wrapper">
+  <div class="agen-slider-container" id="agenSlider">
+    <!-- 14 Agen Statistik -->
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 1">
+      <div class="agen-nama">Ahmad Zulkarnain</div>
     </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 2">
+      <div class="agen-nama">Budi Santoso</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 3">
+      <div class="agen-nama">Citra Melati</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 4">
+      <div class="agen-nama">Dwi Ramadhan</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 5">
+      <div class="agen-nama">Eka Wahyuni</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 6">
+      <div class="agen-nama">Fajar Hidayat</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 7">
+      <div class="agen-nama">Gita Permata</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 8">
+      <div class="agen-nama">Hadi Saputra</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 9">
+      <div class="agen-nama">Indah Lestari</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 10">
+      <div class="agen-nama">Johan Prasetyo</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 11">
+      <div class="agen-nama">Kartika Ayu</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 12">
+      <div class="agen-nama">Lukman Hakim</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 13">
+      <div class="agen-nama">Melati Anggraini</div>
+    </div>
+    <div class="agen-card">
+      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 14">
+      <div class="agen-nama">Nugroho Setiawan</div>
+    </div>
+  </div>
+ <!-- Navigasi Geser -->
+<div class="slider-nav">
+  <button onclick="geserSlider(-1)" class="slider-btn">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button onclick="geserSlider(1)" class="slider-btn">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+</div>
 
     <!-- Kilas Balik -->
     <div id="kilasbalik" class="content-section">
@@ -565,6 +679,26 @@
   window.addEventListener('DOMContentLoaded', () => {
     showSubmenu('penjelasan');
   });
+  
+  //Agen
+  let currentSlide = 0;
+
+  function geserSlider(direction) {
+    const slider = document.getElementById("agenSlider");
+    const cards = slider.querySelectorAll(".agen-card");
+    const cardWidth = cards[0].offsetWidth + 20; // width + margin
+    const wrapper = slider.parentElement;
+    const visibleCards = Math.floor(wrapper.offsetWidth / cardWidth);
+    const maxSlide = cards.length - visibleCards;
+
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide > maxSlide) currentSlide = maxSlide;
+
+    slider.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+  }
+
+
 </script>
 
 </body>
