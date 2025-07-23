@@ -153,6 +153,73 @@
         max-width: 50%;
       }
     }
+   .submenu-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    text-align: left;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #3f72af;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .submenu-btn:hover,
+  .submenu-btn.active {
+    background-color: #3f72af;
+    color: white;
+  }
+
+  .submenu-content {
+    display: none;
+  }
+
+  .submenu-content.active-submenu {
+    display: block;
+  }
+
+  .tabel-box {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .tabel-btn {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #3f72af;
+    font-weight: bold;
+  }
+
+  .styled-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .styled-table thead {
+    background-color: #3f72af;
+    color: white;
+  }
+
+  .styled-table td, .styled-table th {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .unduh-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3f72af;
+    font-weight: bold;
+    text-decoration: none;
+  }
   </style>
 </head>
 <body>
@@ -225,11 +292,11 @@
 
 <!-- Seputar Desa Cantik -->
 <div id="tujuan" class="content-section">
-  <!-- Satu Data Desa -->
-  <div class="slider-container-2col">
+    <!-- Satu Data Desa -->
+  <div class="slider-container-2col2">
     
     <!-- Kolom 2: Penjelasan -->
-    <div class="left-col">
+    <div class="left-col2">
       <h2 style="font-size: 28px; font-weight: bold; color: #3f72af;">Satu Data Desa Indonesia (SDDI)</h2>
       <p style="font-size: 18px; color: #444; line-height: 1.6;">
        <strong>Satu Data Desa Indonesia</strong> atau <strong>SDDI</strong> adalah inisiatif untuk menciptakan sistem data yang terintegrasi, akurat, dan terpercaya di tingkat desa. Program ini bertujuan untuk menyelaraskan dan menyatukan berbagai sumber data desa yang sebelumnya tersebar dan tidak terstandarisasi, sehingga mempermudah pengambilan keputusan, perencanaan pembangunan, dan evaluasi program-program pemerintah.
@@ -240,14 +307,15 @@
       <img src="image1/10394691.png" alt="Logo Desa Cantik">
     </div>
   </div> <!-- Tutup slider-container-2col -->
-  <div class="slider-container-2col2">
+
+  <div class="slider-container-2col">
     <!-- Kolom 1: Logo -->
-    <div class="left-col2">
+    <div class="left-col">
       <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Logo Desa Cantik">
     </div>
 
     <!-- Kolom 2: Penjelasan -->
-    <div class="right-col2">
+    <div class="right-col">
       <h2 style="font-size: 28px; font-weight: bold; color: #3f72af;">Apa itu Desa Cantik?</h2>
       <p style="font-size: 18px; color: #444; line-height: 1.6;">
        <strong>Desa Cantik</strong> atau <strong>Desa Cinta Statistik</strong> merupakan program inovatif dari 
@@ -255,22 +323,180 @@
       Program ini mendorong pemerintah desa agar lebih cakap dalam mengelola dan memanfaatkan data statistik 
       sebagai bagian dari upaya mewujudkan <em>Satu Data Desa Indonesia</em>, yakni sistem data yang terintegrasi, akurat, dan terpercaya.
       <br><br>
+      Program <strong>Desa Cantik</strong>dilatarbelakangi kondisi dimana saat ini desa/kelurahan tidak lagi dianggap sebagai <strong>obyek pembangunan</strong>, 
+      melainkan ditempatkan sebagai <strong>subyek dan ujung tombak pembangunan</strong> dalam peningkatan kesejahteraan masyarakat.
   </div> <!-- Tutup right-col -->
   </div> <!-- Tutup slider-container-2col -->
-  
-  
+
+<!-- Tujuan Desa Cantik -->
+<div style="margin-top: 30px; background-color: #f9f9f9; padding: 25px; border-left: 4px solid #3f72af; border-radius: 8px;">
+  <!-- HANYA judul yang center -->
+  <h2 style="font-size: 28px; font-weight: bold; color: #3f72af; margin-bottom: 20px; text-align: center;">Tujuan Desa Cantik</h2>
+
+  <!-- Semua isi tetap kiri -->
+  <ul style="list-style: none; padding: 0; margin: 0; font-size: 18px; color: #444; text-align: left;">
+    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
+        <i class="fa-solid fa-1"></i>
+      </div>
+      <div style="flex: 1;">Meningkatkan literasi, kesadaran, dan peran aktif perangkat desa/kelurahan dan masyarakat dalam penyelenggaraan kegiatan statistik.</div>
+    </li>
+    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
+        <i class="fa-solid fa-2"></i>
+      </div>
+      <div style="flex: 1;">Standardisasi pengelolaan data statistik untuk menjaga kualitas dan keterbandingan indikator statistik.</div>
+    </li>
+    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
+        <i class="fa-solid fa-3"></i>
+      </div>
+      <div style="flex: 1;">Optimalisasi penggunaan dan pemanfaatan data statistik sehingga program pembangunan di desa/kelurahan tepat sasaran.</div>
+    </li>
+    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
+        <i class="fa-solid fa-4"></i>
+      </div>
+      <div style="flex: 1;">Membentuk agen-agen statistik pada level desa/kelurahan.</div>
+    </li>
+  </ul>
+</div>
 
 </div> <!-- Tutup #tujuan -->
 
-    <!-- Permata Jeriji -->
-    <div id="permatajeriji" class="content-section">
-      <h2>Permata Jeriji</h2>
-      <p>Konten tentang Permata Jeriji akan dimuat di sini.</p>
-         <iframe src="https://online.fliphtml5.com/vbeel/avkp/"
-              sandbox="allow-scripts allow-same-origin"
-              allowfullscreen>
-      </iframe>
+<div id="permatajeriji" class="content-section">
+  <div style="display: flex; gap: 20px; width: 100%;">
+
+    <!-- Sidebar Submenu -->
+    <div style="flex: 0 0 200px; font-family: 'Segoe UI', sans-serif;">
+      <div style="background-color: #f1f1f1; padding: 15px; border-radius: 8px;">
+        <button onclick="showSubmenu('penjelasan')" class="submenu-btn active">📖 Penjelasan Umum</button>
+        <button onclick="showSubmenu('booklet')" class="submenu-btn">📘 Booklet</button>
+        <button onclick="showSubmenu('publikasi')" class="submenu-btn">📄 Publikasi</button>
+        <button onclick="showSubmenu('tabel')" class="submenu-btn">📊 Tabel Data</button>
+        <button onclick="showSubmenu('metadata')" class="submenu-btn">🗂️ Metadata</button>
+      </div>
     </div>
+
+    <!-- Konten Submenu -->
+    <div style="flex: 1; font-family: 'Segoe UI', sans-serif;">
+      <div id="penjelasan" class="submenu-content active-submenu">
+        <div style="display: flex; gap: 20px; align-items: center; background-color: #f9f9f9; padding: 20px; border-left: 4px solid #3f72af; border-radius: 8px;">
+          <div style="flex: 0 0 30%; text-align: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Statistics_%E2%80%93_Data_%E2%80%93_Default.png" alt="Ikon Statistik" style="max-width: 100%; height: auto;">
+          </div>
+          <div style="flex: 1; text-align: left;">
+            <h3 style="color: #3f72af; font-size: 24px; font-weight: bold;">Apa itu Permata Jeriji?</h3>
+            <p style="font-size: 16px; color: #444; line-height: 1.6;">
+              <strong>Permata Jeriji</strong> atau <strong>Pendataan Rumah Masyarakat secara Terpadu Desa Jeriji</strong> merupakan bagian dari kegiatan Desa Cinta Statistik (Desa Cantik) yang diselenggarakan oleh BPS Kabupaten Bangka Selatan. Kegiatan ini merupakan upaya strategis untuk memperoleh data yang lebih akurat, khususnya terkait kondisi hunian layak huni di wilayah Desa Jeriji, Kecamatan Toboali, Kabupaten Bangka Selatan. Kegiatan Permata Jeriji diselenggarakan di seluruh wilayah di Desa Jeriji, Kecamatan Toboali, Kabupaten Bangka Selatan yang terdiri dari 5 dusun dan 12 RT.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="booklet" class="submenu-content">
+        <h3 style="color: #3f72af;">Booklet Permata Jeriji</h3>
+        <iframe src="https://online.fliphtml5.com/vbeel/avkp/"
+                sandbox="allow-scripts allow-same-origin"
+                allowfullscreen style="width: 100%; height: 400px; border: none;"></iframe>
+      </div>
+
+      <div id="publikasi" class="submenu-content">
+        <h3 style="color: #3f72af;">Publikasi</h3>
+        <p style="font-size: 16px; color: #444; line-height: 1.6;">
+          Publikasi ini memuat berbagai informasi statistik desa Jeriji secara ringkas, seperti data kependudukan, sosial-ekonomi, dan infrastruktur. Data disusun untuk memberikan gambaran umum desa dan mendukung perencanaan berbasis data.
+        </p>
+      </div>
+
+      <div id="tabel" class="submenu-content">
+        <h3 style="color: #3f72af;">Tabel Data</h3>
+        <p style="font-size: 16px; color: #444; line-height: 1.6;">
+          Berikut adalah tabel data statistik yang menggambarkan indikator penting di tiap dusun. Klik untuk menampilkan dan unduh dalam bentuk Excel.
+        </p>
+        <div style="margin-top: 20px;">
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px;">
+              <button onclick="showTable('tabel1')" class="tabel-btn">📌 Tabel Air Besar Tengah</button>
+              <div id="tabel1" class="tabel-box">
+                <table class="styled-table">
+                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jumlah Penduduk</td><td>234</td></tr>
+                    <tr><td>Jumlah Rumah Tangga</td><td>80</td></tr>
+                  </tbody>
+                </table>
+                <a href="file_excel/airbesar.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
+              </div>
+            </li>
+            <li style="margin-bottom: 15px;">
+              <button onclick="showTable('tabel2')" class="tabel-btn">📌 Tabel Air Saman</button>
+              <div id="tabel2" class="tabel-box">
+                <table class="styled-table">
+                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jumlah Penduduk</td><td>190</td></tr>
+                    <tr><td>Jumlah Rumah Tangga</td><td>70</td></tr>
+                  </tbody>
+                </table>
+                <a href="file_excel/airsaman.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
+              </div>
+            </li>
+            <li style="margin-bottom: 15px;">
+              <button onclick="showTable('tabel3')" class="tabel-btn">📌 Tabel Air Dentelur</button>
+              <div id="tabel3" class="tabel-box">
+                <table class="styled-table">
+                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jumlah Penduduk</td><td>210</td></tr>
+                    <tr><td>Jumlah Rumah Tangga</td><td>75</td></tr>
+                  </tbody>
+                </table>
+                <a href="file_excel/airdentelur.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
+              </div>
+            </li>
+            <li style="margin-bottom: 15px;">
+              <button onclick="showTable('tabel4')" class="tabel-btn">📌 Tabel Air Tebat</button>
+              <div id="tabel4" class="tabel-box">
+                <table class="styled-table">
+                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jumlah Penduduk</td><td>195</td></tr>
+                    <tr><td>Jumlah Rumah Tangga</td><td>65</td></tr>
+                  </tbody>
+                </table>
+                <a href="file_excel/airtebat.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
+              </div>
+            </li>
+            <li style="margin-bottom: 15px;">
+              <button onclick="showTable('tabel5')" class="tabel-btn">📌 Tabel Air Besar Hulu</button>
+              <div id="tabel5" class="tabel-box">
+                <table class="styled-table">
+                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jumlah Penduduk</td><td>180</td></tr>
+                    <tr><td>Jumlah Rumah Tangga</td><td>60</td></tr>
+                  </tbody>
+                </table>
+                <a href="file_excel/airbesarhulu.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div id="metadata" class="submenu-content">
+        <h3 style="color: #3f72af;">Metadata</h3>
+        <p style="font-size: 16px; color: #444; line-height: 1.6;">
+          Metadata adalah informasi deskriptif tentang variabel dan indikator yang digunakan dalam publikasi dan tabel data. Termasuk definisi, satuan ukur, sumber data, dan metode pengumpulan.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 
     <!-- Galeri -->
     <div id="galeri" class="content-section">
@@ -312,6 +538,34 @@
         }
       });
     });
-  </script>
+ 
+  function showSubmenu(id) {
+    // Sembunyikan semua konten
+    document.querySelectorAll('.submenu-content').forEach(el => {
+      el.classList.remove('active-submenu');
+      el.style.display = 'none';
+    });
+
+    // Nonaktifkan semua tombol
+    document.querySelectorAll('.submenu-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // Tampilkan yang dipilih
+    document.getElementById(id).classList.add('active-submenu');
+    document.getElementById(id).style.display = 'block';
+    event.target.classList.add('active');
+  }
+  //Tabel
+  function showTable(id) {
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+  }
+  // Default tampilkan Booklet
+  window.addEventListener('DOMContentLoaded', () => {
+    showSubmenu('penjelasan');
+  });
+</script>
+
 </body>
 </html>
