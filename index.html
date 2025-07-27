@@ -1,705 +1,988 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Permata Jeriji</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desa Cantik Jeriji 2025</title>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- style -->
+    <style>
+      :root {
+        --primary: #3f72af;
+        --bg: #ffffff;
+      }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-    }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+      }
 
-    /* Navbar Bawah */
-    #navbarBottom {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background-color: #3f72af;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg);
+        color: #333333;
+      }
+
+      .navbar {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        padding: 10px;
+        background-color: #f8f8f8;
+      }
+
+      .menu-box {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+        width: 160px;
+        height: 100px;
+        outline: 2px solid #ffffff;
+        margin: 4px;
+      }
+
+      .menu-icon {
+        font-size: 24px;
+        color: var(--primary);
+        margin-bottom: 8px;
+      }
+
+      .menu-text {
+        font-size: 14px;
+        color: #3f72af;
+        font-weight: bold;
+      }
+      .beranda-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* membuatnya memenuhi tinggi layar */
+        padding: 20px;
+        background-color: #ffffff;
+      }
+
+      .beranda-content {
+        width: 100%;
+        max-width: 900px;
+      }
+      /* Warna khusus untuk menu yang aktif */
+      .active-menu .menu-box {
+        background-color: var(--primary);
+        color: white;
+        outline: 2px solid var(--primary);
+      }
+
+      .active-menu .menu-icon,
+      .active-menu .menu-text {
+        color: white;
+      }
+      .navbar a:hover .menu-box {
+        background-color: #e0f0ff; /* biru muda */
+        outline: 2px solid var(--primary);
+      }
+
+      .navbar a:hover .menu-icon,
+      .navbar a:hover .menu-text {
+        color: var(--primary);
+      }
+      /* Struktur dua kolom */
+      .slider-container-2col {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        margin: 30px 5%;
+        padding: 20px;
+        transition: background 0.3s ease;
+        border-radius: 12px;
+      }
+
+      /* Efek hover keseluruhan */
+      .slider-container-2col:hover {
+        background-color: #f1f7fd;
+      }
+
+      /* Gambar */
+      .slider-container-2col img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+      .slider-container-2col img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Judul */
+      .slider-container-2col h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #3f72af;
+        margin-bottom: 10px;
+      }
+      .slider-container-2col h2:hover {
+        color: #112d4e;
+      }
+
+      /* Kolom */
+      .left-col,
+      .right-col {
+        flex: 1;
+      }
+
+      /* Versi reverse: teks-gambar */
+      .slider-container-2col.reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* Responsif untuk mobile */
+      @media (max-width: 768px) {
+        .slider-container-2col,
+        .slider-container-2col.reverse {
+          flex-direction: column;
+          text-align: center;
+        }
+        .slider-container-2col img {
+          margin-bottom: 15px;
+        }
+      }
+      .floating-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        overflow-x: auto;
+        gap: 6px;
+        padding: 10px;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 999;
+        border-top: 2px solid #e0e0e0;
+      }
+
+      .floating-menu a {
+        text-align: center;
+        color: #3f72af;
+        font-size: 12px;
+        text-decoration: none;
+        flex: 0 0 auto;
+        min-width: 120px;
+        padding: 4px 6px;
+        border-radius: 10px;
+        transition: 0.3s ease;
+      }
+
+      .floating-menu a i {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+
+      .floating-menu a.active {
+        background-color: #3f72af; /* warna aktif */
+        color: white;
+      }
+      .floating-menu a:hover {
+        background-color: #b1c6e5; /* warna hover */
+        color: #000;
+      }
+      .slider-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.slider {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-box {
+  flex: 0 0 auto;
+  text-align: center;
+  width: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.profile-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-box:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-box p {
+  margin-top: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+  /* Gaya umum bagian galeri */
+  #galeri {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  }
+
+  #galeri h2 {
+    text-align: center;
+    color: #3f72af;
+    margin-bottom: 10px;
+  }
+
+  #galeri p {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 30px;
+  }
+
+  .galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .galeri-item {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+
+  .galeri-item img {
+    width: 100%;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+
+  .galeri-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .galeri-caption {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .galeri-caption p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .galeri-caption small {
+    color: #777;
+  }
+
+  /* Responsive tweaks */
+  @media screen and (max-width: 500px) {
+    .galeri-caption p {
       font-size: 14px;
     }
 
-    /* Main Content */
-    #mainContent {
-      padding: 20px 20px 100px;
+    .galeri-caption small {
+      font-size: 12px;
     }
-
-    .content-section {
-      display: none;
-    }
-
-    .content-section.active {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: calc(100vh - 100px);
-      padding: 25px 20px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-
-    .slider-container-2col {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      margin-top: 30px;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-left: 4px solid #3f72af;
-      border-radius: 8px;
-      align-items: center;
-    }
-    .left-col {
-      flex: 0 0 30%;
-      text-align: center;
-    }
-
-    .left-col img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .right-col {
-      flex: 0 0 70%;
-      text-align: left;
-    }
-        .slider-container-2col2 {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      margin-top: 30px;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-left: 4px solid #3f72af;
-      border-radius: 8px;
-      align-items: center;
-    }
-    .right-col2 {
-      flex: 0 0 30%;
-      text-align: center;
-    }
-
-    .right-col img2 {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .left-col2 {
-      flex: 0 0 70%;
-      text-align: left;
-    }
-    
-    .menu-box {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      padding: 20px;
-      text-align: center;
-      scroll-snap-align: start;
-      color: #3f72af;
-      transition: all 0.3s ease;
-    }
-
-    .menu-box .menu-icon {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #3f72af;
-    }
-
-    .menu-box .menu-text {
-      font-weight: 600;
-      color: #3f72af;
-    }
-
-    .menu-box.active-menu-box {
-      background-color: #3f72af;
-    }
-
-    .menu-box.active-menu-box .menu-icon,
-    .menu-box.active-menu-box .menu-text {
-      color: white;
-    }
-
-    .menu-slider-box {
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      width: 80%;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 720px) {
-      .menu-slider-box {
-        max-width: 50%;
-      }
-    }
-   .submenu-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 8px;
-    text-align: left;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    color: #3f72af;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: 'Segoe UI', sans-serif;
   }
-
-  .submenu-btn:hover,
-  .submenu-btn.active {
-    background-color: #3f72af;
-    color: white;
-  }
-
-  .submenu-content {
-    display: none;
-  }
-
-  .submenu-content.active-submenu {
-    display: block;
-  }
-
-  .tabel-box {
-    display: none;
-    margin-top: 10px;
-  }
-
-  .tabel-btn {
-    background-color: #f1f1f1;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #3f72af;
-    font-weight: bold;
-  }
-
-  .styled-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  .styled-table thead {
-    background-color: #3f72af;
-    color: white;
-  }
-
-  .styled-table td, .styled-table th {
-    padding: 8px;
-    border: 1px solid #ccc;
-  }
-
-  .unduh-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #3f72af;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  /* Slider Agen Statistik */
-.agen-slider-wrapper {
-  width: 100%;
-  max-width: 1000px;
+  .kegiatan-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   margin: 0 auto;
-  overflow: hidden;
+  max-width: 800px;
+}
+
+.kegiatan-box {
+  border-radius: 20px;
+  padding: 25px;
   position: relative;
 }
 
-.agen-slider-container {
-  display: flex;
-  transition: transform 0.5s ease;
-  will-change: transform;
+.kegiatan-box h3 {
+  margin-top: 0;
 }
-.agen-card {
-  flex: 0 0 200px;
-  margin-right: 20px;
-  text-align: center;
+
+.biru {
+  background-color: #3f72af;
+  color: white;
 }
-.slider-nav {
+
+.biru h3, .biru p {
+  color: white;
+}
+
+.abu {
+  background-color: #ffffff;
+  color: #3f72af;
+}
+
+.abu h3, .abu p {
+  color: #3f72af;
+}
+
+.keterangan {
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.slider-foto {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  margin: 20px 0;
+}
+
+.slider-foto img.slide {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: none;
+  border-radius: 10px;
+}
+
+.slider-foto img.active {
+  display: block;
+}
+
+.slider-foto button {
   position: absolute;
   top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
   transform: translateY(-50%);
-  padding: 0 10px;
-  box-sizing: border-box;
-}
-
-.slider-btn {
-  background-color: rgba(63, 114, 175, 0.8);
+  background-color: rgba(255,255,255,0.6);
   border: none;
-  color: white;
-  font-size: 20px;
-  padding: 12px;
-  border-radius: 50%;
+  padding: 10px;
+  font-size: 24px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 50%;
 }
 
-.slider-btn:hover {
-  background-color: rgba(63, 114, 175, 1);
+.slider-foto .prev {
+  left: 10px;
 }
 
-  </style>
-</head>
-<body>
+.slider-foto .next {
+  right: 10px;
+}
 
-  <!-- Navbar Bawah -->
-  <div id="navbarBottom">&copy; 2025 BPS Kabupaten Bangka Selatan</div>
+.slider-foto button:hover {
+  background-color: rgba(255,255,255,0.9);
+}
 
-  <!-- Konten Utama -->
-  <div id="mainContent">
+    </style>
+
+    <!-- ikon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
     <!-- Beranda -->
-    <div id="home" class="content-section active">
-      <div style="text-align: center;">
-       <!-- Container Gambar -->
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Lambang_Badan_Pusat_Statistik_%28BPS%29_Indonesia.svg/1726px-Lambang_Badan_Pusat_Statistik_%28BPS%29_Indonesia.svg.png"
-        alt="Logo BPS" 
-        style="width: 50px; height: auto;" />
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png"
-        alt="Logo Desa Cantik" 
-        style="width: 50px; height: auto;" />
-    </div>
-        <h2 style="font-size: 36px; font-weight: bold; color: #3f72af;">
-  Selamat Datang di Portal Satu Data Desa Jeriji
-</h2>
-        <p style="margin: 10px 0 30px; font-size: 16px; color: #555;">Desa Binaan Program Desa Cinta Statistik Kabupaten Bangka Selatan</p>
-</div>
-      <!-- Kotak Menu Slider -->
-      <div class="menu-slider-box">
-        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;">
-          <div style="display: flex; gap: 20px; padding-bottom: 5px; min-width: max-content; scroll-behavior: smooth;">
-
-              <!-- Menu Slider -->
-              <a href="#tujuan" style="min-width: 180px; text-decoration: none;">
-                <div class="menu-box">
-                  <div class="menu-icon"><i class="fa-solid fa-circle-info"></i></div>
-                  <div class="menu-text">Seputar Desa Cantik</div>
-                </div>
-              </a>
-              <a href="#permatajeriji" style="min-width: 180px; text-decoration: none;">
-                <div class="menu-box">
-                  <div class="menu-icon"><i class="fas fa-gem"></i></div>
-                  <div class="menu-text">Permata Jeriji</div>
-                </div>
-              </a>
-              <a href="#galeri" style="min-width: 180px; text-decoration: none;">
-                <div class="menu-box">
-                  <div class="menu-icon"><i class="fas fa-images"></i></div>
-                  <div class="menu-text">Galeri</div>
-                </div>
-              </a>
-              <a href="#agenstatistik" style="min-width: 180px; text-decoration: none;">
-                <div class="menu-box">
-                  <div class="menu-icon"><i class="fas fa-user-tie"></i></div>
-                  <div class="menu-text">Agen Statistik</div>
-                </div>
-              </a>
-              <a href="#kilasbalik" style="min-width: 180px; text-decoration: none;">
-                <div class="menu-box">
-                  <div class="menu-icon"><i class="fas fa-history"></i></div>
-                  <div class="menu-text">Perjalanan Desa Cantik</div>
-                </div>
-              </a>
-
+    <div id="beranda" class="content-section active beranda-wrapper">
+      <div class="beranda-content">
+        <div style="text-align: center">
+          <!-- Container Gambar -->
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+              align-items: center;
+              margin-bottom: 20px;
+            "
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Lambang_Badan_Pusat_Statistik_%28BPS%29_Indonesia.svg/1726px-Lambang_Badan_Pusat_Statistik_%28BPS%29_Indonesia.svg.png"
+              alt="Logo BPS"
+              style="width: 50px; height: auto"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png"
+              alt="Logo Desa Cantik"
+              style="width: 50px; height: auto"
+            />
           </div>
+
+          <!-- Judul & Deskripsi -->
+          <h2 style="font-size: 36px; font-weight: bold; color: #3f72af">
+            Selamat Datang di Portal Satu Data Desa Jeriji
+          </h2>
+          <p style="margin: 10px 0 30px; font-size: 16px; color: #555">
+            Desa Binaan Program Desa Cinta Statistik Kabupaten Bangka Selatan
+          </p>
+        </div>
+
+        <!-- Menu Box Geser -->
+        <nav class="navbar">
+          <a
+            href="#beranda"
+            class="active-menu"
+            style="min-width: 180px; text-decoration: none"
+          >
+            <div class="menu-box">
+              <div class="menu-icon"><i class="fas fa-home"></i></div>
+              <div class="menu-text">Beranda</div>
+            </div>
+          </a>
+          <a href="#tujuan" style="min-width: 180px; text-decoration: none">
+            <div class="menu-box">
+              <div class="menu-icon">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+              <div class="menu-text">Seputar Desa Cantik</div>
+            </div>
+          </a>
+          <a
+            href="#permatajeriji"
+            style="min-width: 180px; text-decoration: none"
+          >
+            <div class="menu-box">
+              <div class="menu-icon"><i class="fas fa-gem"></i></div>
+              <div class="menu-text">Data Perumahan</div>
+            </div>
+          </a>
+          <a href="#galeri" style="min-width: 180px; text-decoration: none">
+            <div class="menu-box">
+              <div class="menu-icon"><i class="fas fa-images"></i></div>
+              <div class="menu-text">Galeri</div>
+            </div>
+          </a>
+          <a
+            href="#agenstatistik"
+            style="min-width: 180px; text-decoration: none"
+          >
+            <div class="menu-box">
+              <div class="menu-icon"><i class="fas fa-user-tie"></i></div>
+              <div class="menu-text">Agen Statistik</div>
+            </div>
+          </a>
+          <a href="#kilasbalik" style="min-width: 180px; text-decoration: none">
+            <div class="menu-box">
+              <div class="menu-icon"><i class="fas fa-history"></i></div>
+              <div class="menu-text">Perjalanan Desa Cantik</div>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <!-- Seputar Desa Cantik -->
+    <div id="tujuan" class="content-section">
+      <!-- Satu Data Desa -->
+      <div class="slider-container-2col reverse">
+        <!-- Kolom 2: Penjelasan -->
+        <div class="left-col">
+          <h2 style="font-size: 28px; font-weight: bold; color: #3f72af">
+            Satu Data Desa Indonesia (SDDI)
+          </h2>
+          <p style="font-size: 18px; color: #444; line-height: 1.6">
+            <strong>Satu Data Desa Indonesia</strong> atau
+            <strong>SDDI</strong> adalah inisiatif untuk menciptakan sistem data
+            yang terintegrasi, akurat, dan terpercaya di tingkat desa. Program
+            ini bertujuan untuk menyelaraskan dan menyatukan berbagai sumber
+            data desa yang sebelumnya tersebar dan tidak terstandarisasi,
+            sehingga mempermudah pengambilan keputusan, perencanaan pembangunan,
+            dan evaluasi program-program pemerintah. <br /><br />
+          </p>
+        </div>
+
+        <!-- Tutup right-col -->
+        <!-- Kolom 1: Logo -->
+        <div class="left-col">
+          <img src="image1/10394691.png" alt="Logo Desa Cantik" />
         </div>
       </div>
-    </div>
+      <!-- Tutup slider-container-2col -->
 
-<!-- Seputar Desa Cantik -->
-<div id="tujuan" class="content-section">
-    <!-- Satu Data Desa -->
-  <div class="slider-container-2col2">
-    
-    <!-- Kolom 2: Penjelasan -->
-    <div class="left-col2">
-      <h2 style="font-size: 28px; font-weight: bold; color: #3f72af;">Satu Data Desa Indonesia (SDDI)</h2>
-      <p style="font-size: 18px; color: #444; line-height: 1.6;">
-       <strong>Satu Data Desa Indonesia</strong> atau <strong>SDDI</strong> adalah inisiatif untuk menciptakan sistem data yang terintegrasi, akurat, dan terpercaya di tingkat desa. Program ini bertujuan untuk menyelaraskan dan menyatukan berbagai sumber data desa yang sebelumnya tersebar dan tidak terstandarisasi, sehingga mempermudah pengambilan keputusan, perencanaan pembangunan, dan evaluasi program-program pemerintah.
-      <br><br>
-  </div> <!-- Tutup right-col -->
-    <!-- Kolom 1: Logo -->
-    <div class="left-col">
-      <img src="image1/10394691.png" alt="Logo Desa Cantik">
-    </div>
-  </div> <!-- Tutup slider-container-2col -->
-
-  <div class="slider-container-2col">
-    <!-- Kolom 1: Logo -->
-    <div class="left-col">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Logo Desa Cantik">
-    </div>
-
-    <!-- Kolom 2: Penjelasan -->
-    <div class="right-col">
-      <h2 style="font-size: 28px; font-weight: bold; color: #3f72af;">Apa itu Desa Cantik?</h2>
-      <p style="font-size: 18px; color: #444; line-height: 1.6;">
-       <strong>Desa Cantik</strong> atau <strong>Desa Cinta Statistik</strong> merupakan program inovatif dari 
-      Badan Pusat Statistik (BPS) yang bertujuan untuk mempercepat penguatan statistik sektoral di tingkat desa. 
-      Program ini mendorong pemerintah desa agar lebih cakap dalam mengelola dan memanfaatkan data statistik 
-      sebagai bagian dari upaya mewujudkan <em>Satu Data Desa Indonesia</em>, yakni sistem data yang terintegrasi, akurat, dan terpercaya.
-      <br><br>
-      Program <strong>Desa Cantik</strong>dilatarbelakangi kondisi dimana saat ini desa/kelurahan tidak lagi dianggap sebagai <strong>obyek pembangunan</strong>, 
-      melainkan ditempatkan sebagai <strong>subyek dan ujung tombak pembangunan</strong> dalam peningkatan kesejahteraan masyarakat.
-  </div> <!-- Tutup right-col -->
-  </div> <!-- Tutup slider-container-2col -->
-
-<!-- Tujuan Desa Cantik -->
-<div style="margin-top: 30px; background-color: #f9f9f9; padding: 25px; border-left: 4px solid #3f72af; border-radius: 8px;">
-  <!-- HANYA judul yang center -->
-  <h2 style="font-size: 28px; font-weight: bold; color: #3f72af; margin-bottom: 20px; text-align: center;">Tujuan Desa Cantik</h2>
-
-  <!-- Semua isi tetap kiri -->
-  <ul style="list-style: none; padding: 0; margin: 0; font-size: 18px; color: #444; text-align: left;">
-    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
-        <i class="fa-solid fa-1"></i>
-      </div>
-      <div style="flex: 1;">Meningkatkan literasi, kesadaran, dan peran aktif perangkat desa/kelurahan dan masyarakat dalam penyelenggaraan kegiatan statistik.</div>
-    </li>
-    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
-        <i class="fa-solid fa-2"></i>
-      </div>
-      <div style="flex: 1;">Standardisasi pengelolaan data statistik untuk menjaga kualitas dan keterbandingan indikator statistik.</div>
-    </li>
-    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
-        <i class="fa-solid fa-3"></i>
-      </div>
-      <div style="flex: 1;">Optimalisasi penggunaan dan pemanfaatan data statistik sehingga program pembangunan di desa/kelurahan tepat sasaran.</div>
-    </li>
-    <li style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-      <div style="min-width: 36px; height: 36px; background-color: #3f72af; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">
-        <i class="fa-solid fa-4"></i>
-      </div>
-      <div style="flex: 1;">Membentuk agen-agen statistik pada level desa/kelurahan.</div>
-    </li>
-  </ul>
-</div>
-
-</div> <!-- Tutup #tujuan -->
-
-<div id="permatajeriji" class="content-section">
-  <div style="display: flex; gap: 20px; width: 100%;">
-
-    <!-- Sidebar Submenu -->
-    <div style="flex: 0 0 200px; font-family: 'Segoe UI', sans-serif;">
-      <div style="background-color: #f1f1f1; padding: 15px; border-radius: 8px;">
-        <button onclick="showSubmenu('penjelasan')" class="submenu-btn active">📖 Penjelasan Umum</button>
-        <button onclick="showSubmenu('booklet')" class="submenu-btn">📘 Booklet</button>
-        <button onclick="showSubmenu('publikasi')" class="submenu-btn">📄 Publikasi</button>
-        <button onclick="showSubmenu('tabel')" class="submenu-btn">📊 Tabel Data</button>
-        <button onclick="showSubmenu('metadata')" class="submenu-btn">🗂️ Metadata</button>
-      </div>
-    </div>
-
-    <!-- Konten Submenu -->
-    <div style="flex: 1; font-family: 'Segoe UI', sans-serif;">
-      <div id="penjelasan" class="submenu-content active-submenu">
-        <div style="display: flex; gap: 20px; align-items: center; background-color: #f9f9f9; padding: 20px; border-left: 4px solid #3f72af; border-radius: 8px;">
-          <div style="flex: 0 0 30%; text-align: center;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Statistics_%E2%80%93_Data_%E2%80%93_Default.png" alt="Ikon Statistik" style="max-width: 100%; height: auto;">
-          </div>
-          <div style="flex: 1; text-align: left;">
-            <h3 style="color: #3f72af; font-size: 24px; font-weight: bold;">Apa itu Permata Jeriji?</h3>
-            <p style="font-size: 16px; color: #444; line-height: 1.6;">
-              <strong>Permata Jeriji</strong> atau <strong>Pendataan Rumah Masyarakat secara Terpadu Desa Jeriji</strong> merupakan bagian dari kegiatan Desa Cinta Statistik (Desa Cantik) yang diselenggarakan oleh BPS Kabupaten Bangka Selatan. Kegiatan ini merupakan upaya strategis untuk memperoleh data yang lebih akurat, khususnya terkait kondisi hunian layak huni di wilayah Desa Jeriji, Kecamatan Toboali, Kabupaten Bangka Selatan. Kegiatan Permata Jeriji diselenggarakan di seluruh wilayah di Desa Jeriji, Kecamatan Toboali, Kabupaten Bangka Selatan yang terdiri dari 5 dusun dan 12 RT.
-            </p>
-          </div>
+      <div class="slider-container-2col">
+        <!-- Kolom 1: Logo -->
+        <div class="left-col">
+          <img
+            src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png"
+            alt="Logo Desa Cantik"
+          />
         </div>
-      </div>
 
-      <div id="booklet" class="submenu-content">
-        <h3 style="color: #3f72af;">Booklet Permata Jeriji</h3>
-        <iframe src="https://online.fliphtml5.com/vbeel/avkp/"
-                sandbox="allow-scripts allow-same-origin"
-                allowfullscreen style="width: 100%; height: 400px; border: none;"></iframe>
-      </div>
-
-      <div id="publikasi" class="submenu-content">
-        <h3 style="color: #3f72af;">Publikasi</h3>
-        <p style="font-size: 16px; color: #444; line-height: 1.6;">
-          Publikasi ini memuat berbagai informasi statistik desa Jeriji secara ringkas, seperti data kependudukan, sosial-ekonomi, dan infrastruktur. Data disusun untuk memberikan gambaran umum desa dan mendukung perencanaan berbasis data.
-        </p>
-      </div>
-
-      <div id="tabel" class="submenu-content">
-        <h3 style="color: #3f72af;">Tabel Data</h3>
-        <p style="font-size: 16px; color: #444; line-height: 1.6;">
-          Berikut adalah tabel data statistik yang menggambarkan indikator penting di tiap dusun. Klik untuk menampilkan dan unduh dalam bentuk Excel.
-        </p>
-        <div style="margin-top: 20px;">
-          <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 15px;">
-              <button onclick="showTable('tabel1')" class="tabel-btn">📌 Tabel Air Besar Tengah</button>
-              <div id="tabel1" class="tabel-box">
-                <table class="styled-table">
-                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
-                  <tbody>
-                    <tr><td>Jumlah Penduduk</td><td>234</td></tr>
-                    <tr><td>Jumlah Rumah Tangga</td><td>80</td></tr>
-                  </tbody>
-                </table>
-                <a href="file_excel/airbesar.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
-              </div>
-            </li>
-            <li style="margin-bottom: 15px;">
-              <button onclick="showTable('tabel2')" class="tabel-btn">📌 Tabel Air Saman</button>
-              <div id="tabel2" class="tabel-box">
-                <table class="styled-table">
-                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
-                  <tbody>
-                    <tr><td>Jumlah Penduduk</td><td>190</td></tr>
-                    <tr><td>Jumlah Rumah Tangga</td><td>70</td></tr>
-                  </tbody>
-                </table>
-                <a href="file_excel/airsaman.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
-              </div>
-            </li>
-            <li style="margin-bottom: 15px;">
-              <button onclick="showTable('tabel3')" class="tabel-btn">📌 Tabel Air Dentelur</button>
-              <div id="tabel3" class="tabel-box">
-                <table class="styled-table">
-                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
-                  <tbody>
-                    <tr><td>Jumlah Penduduk</td><td>210</td></tr>
-                    <tr><td>Jumlah Rumah Tangga</td><td>75</td></tr>
-                  </tbody>
-                </table>
-                <a href="file_excel/airdentelur.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
-              </div>
-            </li>
-            <li style="margin-bottom: 15px;">
-              <button onclick="showTable('tabel4')" class="tabel-btn">📌 Tabel Air Tebat</button>
-              <div id="tabel4" class="tabel-box">
-                <table class="styled-table">
-                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
-                  <tbody>
-                    <tr><td>Jumlah Penduduk</td><td>195</td></tr>
-                    <tr><td>Jumlah Rumah Tangga</td><td>65</td></tr>
-                  </tbody>
-                </table>
-                <a href="file_excel/airtebat.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
-              </div>
-            </li>
-            <li style="margin-bottom: 15px;">
-              <button onclick="showTable('tabel5')" class="tabel-btn">📌 Tabel Air Besar Hulu</button>
-              <div id="tabel5" class="tabel-box">
-                <table class="styled-table">
-                  <thead><tr><th>Indikator</th><th>Jumlah</th></tr></thead>
-                  <tbody>
-                    <tr><td>Jumlah Penduduk</td><td>180</td></tr>
-                    <tr><td>Jumlah Rumah Tangga</td><td>60</td></tr>
-                  </tbody>
-                </table>
-                <a href="file_excel/airbesarhulu.xlsx" download class="unduh-link">⬇️ Unduh Excel</a>
-              </div>
-            </li>
-          </ul>
+        <!-- Kolom 2: Penjelasan -->
+        <div class="right-col">
+          <h2 style="font-size: 28px; font-weight: bold; color: #3f72af">
+            Apa itu Desa Cantik?
+          </h2>
+          <p style="font-size: 18px; color: #444; line-height: 1.6">
+            <strong>Desa Cantik</strong> atau
+            <strong>Desa Cinta Statistik</strong> merupakan program inovatif
+            dari Badan Pusat Statistik (BPS) yang bertujuan untuk mempercepat
+            penguatan statistik sektoral di tingkat desa. Program ini mendorong
+            pemerintah desa agar lebih cakap dalam mengelola dan memanfaatkan
+            data statistik sebagai bagian dari upaya mewujudkan
+            <em>Satu Data Desa Indonesia</em>, yakni sistem data yang
+            terintegrasi, akurat, dan terpercaya. <br /><br />
+            Program <strong>Desa Cantik</strong> dilatarbelakangi kondisi dimana
+            saat ini desa/kelurahan tidak lagi dianggap sebagai
+            <strong>obyek pembangunan</strong>, melainkan ditempatkan sebagai
+            <strong>subyek dan ujung tombak pembangunan</strong> dalam
+            peningkatan kesejahteraan masyarakat.
+          </p>
         </div>
+
+        <!-- Tutup right-col -->
       </div>
+      <!-- Tutup slider-container-2col -->
 
+      <!-- Tujuan Desa Cantik -->
+      <div
+        style="
+          margin: 30px;
+          background-color: #f9f9f9;
+          padding: 25px;
+          border-left: 4px solid #3f72af;
+          border-radius: 8px;
+        "
+      >
+        <!-- HANYA judul yang center -->
+        <h2
+          style="
+            font-size: 28px;
+            font-weight: bold;
+            color: #3f72af;
+            margin-bottom: 20px;
+            text-align: center;
+          "
+        >
+          Tujuan Desa Cantik
+        </h2>
 
-      <div id="metadata" class="submenu-content">
-        <h3 style="color: #3f72af;">Metadata</h3>
-        <p style="font-size: 16px; color: #444; line-height: 1.6;">
-          Metadata adalah informasi deskriptif tentang variabel dan indikator yang digunakan dalam publikasi dan tabel data. Termasuk definisi, satuan ukur, sumber data, dan metode pengumpulan.
-        </p>
+        <!-- Semua isi tetap kiri -->
+        <ul
+          style="
+            list-style: none;
+            padding: 0;
+            margin: 30px;
+            font-size: 18px;
+            color: #444;
+            text-align: left;
+          "
+        >
+          <li
+            style="display: flex; align-items: flex-start; margin-bottom: 15px"
+          >
+            <div
+              style="
+                min-width: 36px;
+                height: 36px;
+                background-color: #3f72af;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                margin-right: 15px;
+              "
+            >
+              <i class="fa-solid fa-1"></i>
+            </div>
+            <div style="flex: 1">
+              Meningkatkan literasi, kesadaran, dan peran aktif perangkat
+              desa/kelurahan dan masyarakat dalam penyelenggaraan kegiatan
+              statistik.
+            </div>
+          </li>
+          <li
+            style="display: flex; align-items: flex-start; margin-bottom: 15px"
+          >
+            <div
+              style="
+                min-width: 36px;
+                height: 36px;
+                background-color: #3f72af;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                margin-right: 15px;
+              "
+            >
+              <i class="fa-solid fa-2"></i>
+            </div>
+            <div style="flex: 1">
+              Standardisasi pengelolaan data statistik untuk menjaga kualitas
+              dan keterbandingan indikator statistik.
+            </div>
+          </li>
+          <li
+            style="display: flex; align-items: flex-start; margin-bottom: 15px"
+          >
+            <div
+              style="
+                min-width: 36px;
+                height: 36px;
+                background-color: #3f72af;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                margin-right: 15px;
+              "
+            >
+              <i class="fa-solid fa-3"></i>
+            </div>
+            <div style="flex: 1">
+              Optimalisasi penggunaan dan pemanfaatan data statistik sehingga
+              program pembangunan di desa/kelurahan tepat sasaran.
+            </div>
+          </li>
+          <li
+            style="display: flex; align-items: flex-start; margin-bottom: 15px"
+          >
+            <div
+              style="
+                min-width: 36px;
+                height: 36px;
+                background-color: #3f72af;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                margin-right: 15px;
+              "
+            >
+              <i class="fa-solid fa-4"></i>
+            </div>
+            <div style="flex: 1">
+              Membentuk agen-agen statistik pada level desa/kelurahan.
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-
+<!-- Galeri -->
+<section id="galeri" style="padding: 40px 30px; background-color: #fafafa;">
+  <h2 style="text-align: center; color: #3f72af; margin-bottom: 10px;">
+    Yuk, intip dokumentasi seru dari berbagai kegiatan serba statistik di Desa Jeriji! 📸✨
+  </h2>
+    <div class="galeri-grid">
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 1">
+      <div class="galeri-caption">
+        <p>Pelatihan Statistik</p>
+        <small>12 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 2">
+      <div class="galeri-caption">
+        <p>Pendataan Rumah</p>
+        <small>15 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 3">
+      <div class="galeri-caption">
+        <p>Forum Diskusi Data</p>
+        <small>18 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 4">
+      <div class="galeri-caption">
+        <p>Peluncuran Website</p>
+        <small>20 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 5">
+      <div class="galeri-caption">
+        <p>Sosialisasi Data</p>
+        <small>22 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 6">
+      <div class="galeri-caption">
+        <p>Kegiatan BPS</p>
+        <small>23 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 7">
+      <div class="galeri-caption">
+        <p>Pendampingan Desa</p>
+        <small>24 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 8">
+      <div class="galeri-caption">
+        <p>Pelatihan Agen</p>
+        <small>25 Juli 2025</small>
+      </div>
+    </div>
+    <div class="galeri-item">
+      <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" alt="Dokumentasi 9">
+      <div class="galeri-caption">
+        <p>Evaluasi Program</p>
+        <small>26 Juli 2025</small>
+      </div>
+    </div>
   </div>
-</div>
-
-
-
-    <!-- Galeri -->
-    <div id="galeri" class="content-section">
-      <h2>Galeri</h2>
-      <p>Konten galeri akan ditampilkan di sini.</p>
-    </div>
-
+</section>
     <!-- Agen Statistik -->
-    <div id="agenstatistik" class="content-section">
-     <h2 style="color: #3f72af; font-size: 28px; font-weight: bold; text-align: center;">Agen Statistik Desa Jeriji</h2>
-
-<div class="agen-slider-wrapper">
-  <div class="agen-slider-container" id="agenSlider">
-    <!-- 14 Agen Statistik -->
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 1">
-      <div class="agen-nama">Ahmad Zulkarnain</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 2">
-      <div class="agen-nama">Budi Santoso</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 3">
-      <div class="agen-nama">Citra Melati</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 4">
-      <div class="agen-nama">Dwi Ramadhan</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 5">
-      <div class="agen-nama">Eka Wahyuni</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 6">
-      <div class="agen-nama">Fajar Hidayat</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 7">
-      <div class="agen-nama">Gita Permata</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 8">
-      <div class="agen-nama">Hadi Saputra</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 9">
-      <div class="agen-nama">Indah Lestari</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 10">
-      <div class="agen-nama">Johan Prasetyo</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 11">
-      <div class="agen-nama">Kartika Ayu</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 12">
-      <div class="agen-nama">Lukman Hakim</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 13">
-      <div class="agen-nama">Melati Anggraini</div>
-    </div>
-    <div class="agen-card">
-      <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Agen 14">
-      <div class="agen-nama">Nugroho Setiawan</div>
-    </div>
-  </div>
- <!-- Navigasi Geser -->
-<div class="slider-nav">
-  <button onclick="geserSlider(-1)" class="slider-btn">
-    <i class="fas fa-chevron-left"></i>
-  </button>
-  <button onclick="geserSlider(1)" class="slider-btn">
-    <i class="fas fa-chevron-right"></i>
-  </button>
-</div>
-</div>
-
-    <!-- Kilas Balik -->
-    <div id="kilasbalik" class="content-section">
-      <h2>Kilas Balik Desa Cantik</h2>
-      <p>Sejarah dan perjalanan program akan dimuat di sini.</p>
+<section id="agenstatistik" style="padding: 40px 30px; background-color: #f4f4f4;">
+  <h2 style="text-align: center; color: #3f72af;">Kenalan, yuk! Inilah para Agen Statistik Desa Jeriji yang siap membawa perubahan berbasis data</h2>
+    <div class="slider-container">
+    <div class="slider">
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 1" />
+        <p>Nama Agen 1</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 2" />
+        <p>Nama Agen 2</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 3" />
+        <p>Nama Agen 3</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 4" />
+        <p>Nama Agen 4</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 5" />
+        <p>Nama Agen 5</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 6" />
+        <p>Nama Agen 6</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 7" />
+        <p>Nama Agen 7</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 8" />
+        <p>Nama Agen 8</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 9" />
+        <p>Nama Agen 9</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 10" />
+        <p>Nama Agen 10</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 11" />
+        <p>Nama Agen 11</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 12" />
+        <p>Nama Agen 12</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 13" />
+        <p>Nama Agen 13</p>
+      </div>
+      <div class="profile-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 14" />
+        <p>Nama Agen 14</p>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- Script Navigasi -->
-  <script>
-    const menuBoxes = document.querySelectorAll('.menu-box');
+<section id="kilasbalik">
+  <h2 style="text-align: center; color: #3f72af; margin-bottom: 10px;">Perjalanan Desa Cantik 🌾</h2>
+  <p style="text-align: center; margin-bottom: 30px;">Jejak langkah Desa Jeriji dalam mewujudkan pembangunan berbasis data, lewat berbagai kegiatan inspiratif! 🚀</p>
 
-    menuBoxes.forEach(box => {
-      box.addEventListener('click', function (e) {
-        e.preventDefault();
+  <div class="kegiatan-wrapper">
 
-        menuBoxes.forEach(b => b.classList.remove('active-menu-box'));
-        this.classList.add('active-menu-box');
+    <!-- Kegiatan 1 (ganjil - biru) -->
+    <div class="kegiatan-box biru">
+      <h3>Kegiatan 1: Sosialisasi Data Statistik</h3>
+      <div class="slider-foto">
+        <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" class="slide active">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" class="slide">
+        <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" class="slide">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <p class="keterangan">Kegiatan ini dilakukan untuk memperkenalkan pentingnya data statistik kepada perangkat desa dan masyarakat agar lebih sadar data dalam perencanaan pembangunan.</p>
+    </div>
 
-        const href = this.parentElement.getAttribute('href');
-        const targetId = href.replace('#', '');
-        const targetSection = document.getElementById(targetId);
+    <!-- Kegiatan 2 (genap - abu) -->
+    <div class="kegiatan-box abu">
+      <h3>Kegiatan 2: Pelatihan Agen Statistik</h3>
+      <div class="slider-foto">
+        <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" class="slide active">
+        <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" class="slide">
+        <img src="https://w7.pngwing.com/pngs/459/713/png-transparent-sekolah-tinggi-ilmu-statistik-statistics-indonesia-logo-cdr-others-miscellaneous-text-indonesia-thumbnail.png" class="slide">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <p class="keterangan">Para agen statistik dilatih untuk memahami konsep data, cara mengolah, dan menyampaikan informasi statistik dengan akurat dan menarik.</p>
+    </div>
 
-        if (targetSection) {
-          document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
-          targetSection.classList.add('active');
+    <!-- Tambahkan Kegiatan 3 sampai 10 dengan pola sama -->
+    
+  </div>
+</section>
+
+
+  <!-- Floating Bottom Menu -->
+    <div class="floating-menu">
+      <a href="#beranda"><i class="fas fa-home"></i><span>Beranda</span></a>
+      <a href="#tujuan"
+        ><i class="fa-solid fa-circle-info"></i><span>Desa Cantik</span></a
+      >
+      <a href="#permatajeriji"
+        ><i class="fas fa-gem"></i><span>Perumahan</span></a
+      >
+      <a href="#galeri"><i class="fas fa-images"></i><span>Galeri</span></a>
+      <a href="#agenstatistik"
+        ><i class="fas fa-user-tie"></i><span>Agen</span></a
+      >
+      <a href="#kilasbalik"
+        ><i class="fas fa-history"></i><span>Perjalanan</span></a
+      >
+    </div>
+    <!-- Pengaturan Menu -->
+    <!-- Floating Bottom Menu -->
+    <div class="floating-menu">
+      <a href="#beranda"><i class="fas fa-home"></i><span>Beranda</span></a>
+      <a href="#tujuan"
+        ><i class="fa-solid fa-circle-info"></i
+        ><span>Seputar Desa Cantik</span></a
+      >
+      <a href="#permatajeriji"
+        ><i class="fas fa-gem"></i><span>Data Perumahan</span></a
+      >
+      <a href="#galeri"><i class="fas fa-images"></i><span>Galeri</span></a>
+      <a href="#agenstatistik"
+        ><i class="fas fa-user-tie"></i><span>Agen Statistik</span></a
+      >
+      <a href="#kilasbalik"
+        ><i class="fas fa-history"></i><span>Perjalanan Desa Cantik</span></a
+      >
+    </div>
+
+    <script>
+            // Ambil semua menu
+            const navLinks = document.querySelectorAll(".navbar a");
+
+            navLinks.forEach((link) => {
+              link.addEventListener("click", () => {
+                // Hapus class active-menu dari semua
+                navLinks.forEach((item) => item.classList.remove("active-menu"));
+                // Tambah class active-menu ke yang diklik
+                link.classList.add("active-menu");
+              });
+            });
+            /* Efek Menu di Bawah */
+      <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".navbar a");
+        const floatLinks = document.querySelectorAll(".floating-menu a");
+
+        function updateActiveMenu() {
+          let currentId = "";
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 120 && rect.bottom > 120) {
+              currentId = "#" + section.id;
+            }
+          });
+
+          // Navbar utama
+          navLinks.forEach((link) => {
+            link.classList.toggle("active-menu", link.getAttribute("href") === currentId);
+          });
+
+          // Menu floating bawah
+          floatLinks.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === currentId);
+          });
         }
-      });
-    });
- 
-  function showSubmenu(id) {
-    // Sembunyikan semua konten
-    document.querySelectorAll('.submenu-content').forEach(el => {
-      el.classList.remove('active-submenu');
-      el.style.display = 'none';
+
+        window.addEventListener("scroll", updateActiveMenu);
+        window.addEventListener("load", updateActiveMenu);
+        floatLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            floatLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+          });
+        });
+
+  document.querySelectorAll('.slider-foto').forEach(slider => {
+    const slides = slider.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    };
+
+    const nextSlide = () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    };
+
+    const prevSlide = () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    };
+
+    // Tombol manual
+    slider.querySelector('.prev').addEventListener('click', () => {
+      prevSlide();
     });
 
-    // Nonaktifkan semua tombol
-    document.querySelectorAll('.submenu-btn').forEach(btn => {
-      btn.classList.remove('active');
+    slider.querySelector('.next').addEventListener('click', () => {
+      nextSlide();
     });
 
-    // Tampilkan yang dipilih
-    document.getElementById(id).classList.add('active-submenu');
-    document.getElementById(id).style.display = 'block';
-    event.target.classList.add('active');
-  }
-  //Tabel
-  function showTable(id) {
-    const el = document.getElementById(id);
-    el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
-  }
-  // Default tampilkan Booklet
-  window.addEventListener('DOMContentLoaded', () => {
-    showSubmenu('penjelasan');
+    // Auto-slide
+    setInterval(() => {
+      nextSlide();
+    }, 4000);
+
+    showSlide(currentIndex);
   });
-  
-  //Agen
-  let currentSlide = 0;
-
-  function geserSlider(direction) {
-    const slider = document.getElementById("agenSlider");
-    const cards = slider.querySelectorAll(".agen-card");
-    const cardWidth = cards[0].offsetWidth + 20; // width + margin
-    const wrapper = slider.parentElement;
-    const visibleCards = Math.floor(wrapper.offsetWidth / cardWidth);
-    const maxSlide = cards.length - visibleCards;
-
-    currentSlide += direction;
-    if (currentSlide < 0) currentSlide = 0;
-    if (currentSlide > maxSlide) currentSlide = maxSlide;
-
-    slider.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
-  }
-
-
-</script>
-
-</body>
+    </script>
+  </body>
 </html>
