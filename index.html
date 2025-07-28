@@ -491,18 +491,28 @@
   position: relative;
 }
 
+.infografis-slider {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 .infografis-slider .slides {
   display: flex;
   justify-content: center; /* center horizontal */
   align-items: center;     /* center vertical */
-  height: 75%;
+  width: 100%;
 }
 
 .infografis-slider .slides img {
   display: none;
-  width: 60%;
+  width: 40%;
   height: auto;
-  margin: auto; /* jaga-jaga kalau pakai block bukan flex */
+  margin: auto;
+  transform: scale(1, 0.75); /* perkecil tinggi jadi 75% */
+  transform-origin: top;
 }
 
 .infografis-slider .slides img.active {
@@ -514,9 +524,9 @@
     flex-direction: column;
   }
 
-  .infografis-slider img {
-    width: 100%;
-    height: auto;
+  .infografis-slider .slides img {
+    width: 90%;
+    transform: scale(1, 0.75);
   }
 
   iframe {
@@ -524,6 +534,7 @@
     height: auto !important;
   }
 }
+
 
 
     </style>
