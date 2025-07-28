@@ -464,27 +464,43 @@
       }
 
       /* 2 Kolom di Sub Menu Permata Jeriji */
-      .info-section {
-       display: flex;
-       flex-wrap: wrap;
-       gap: 20px;
-       align-items: flex-start;
-      }
+.info-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  align-items: flex-start;
+}
 
-      .logo-column {
-       flex: 0 0 120px; /* ukuran tetap */
-      }
+.logo-column {
+  flex: 0 0 30%; /* logo ambil 30% lebar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-column {
+  flex: 0 0 70%; /* teks ambil 70% lebar */
+  padding-right: 20px; /* beri jarak dari sisi kanan */
+  box-sizing: border-box;
+}
+
 
 .logo-img {
   width: 100%;
   height: auto;
-  max-width: 120px;
+}
+@media (max-width: 768px) {
+  .info-section {
+    flex-direction: column;
+  }
+
+  .logo-column,
+  .text-column {
+    flex: 1 1 100%;
+  }
 }
 
-.text-column {
-  flex: 1;
-  min-width: 200px;
-}
+
 .infografis-slider {
   max-width: 100%;
   overflow: hidden;
@@ -1079,27 +1095,27 @@
     <div class="slider">
       <div class="profile-box">
         <img src="image1/1.png" alt="Foto Agen 1" />
-        <p>Nama Agen 1</p>
+        <p>Hasan Basri</p>
       </div>
       <div class="profile-box">
         <img src="image1/2.png" alt="Foto Agen 2" />
-        <p>Nama Agen 2</p>
+        <p>Wulandari</p>
       </div>
       <div class="profile-box">
         <img src="image1/3.png" alt="Foto Agen 3" />
-        <p>Nama Agen 3</p>
+        <p>Setiawan</p>
       </div>
       <div class="profile-box">
         <img src="image1/4.png" alt="Foto Agen 4" />
-        <p>Nama Agen 4</p>
+        <p>Adi Wijaya</p>
       </div>
       <div class="profile-box">
         <img src="image1/5.png" alt="Foto Agen 5" />
-        <p>Nama Agen 5</p>
+        <p>Madi</p>
       </div>
       <div class="profile-box">
         <img src="image1/6.png" alt="Foto Agen 6" />
-        <p>Nama Agen 6</p>
+        <p>Yongki Kurniawan</p>
       </div>
       <div class="profile-box">
         <img src="image1/7.png" alt="Foto Agen 7" />
@@ -1107,19 +1123,19 @@
       </div>
       <div class="profile-box">
         <img src="image1/8.png" alt="Foto Agen 8" />
-        <p>Nama Agen 8</p>
+        <p>Yanto</p>
       </div>
       <div class="profile-box">
         <img src="image1/9.png" alt="Foto Agen 9" />
-        <p>Nama Agen 9</p>
+        <p>Sudianto</p>
       </div>
       <div class="profile-box">
         <img src="image1/10.png" alt="Foto Agen 10" />
-        <p>Nama Agen 10</p>
+        <p>Jon Hendri</p>
       </div>
       <div class="profile-box">
         <img src="image1/11.png" alt="Foto Agen 11" />
-        <p>Nama Agen 11</p>
+        <p>Dadang</p>
       </div>
       <div class="profile-box">
         <img src="image1/12.png" alt="Foto Agen 12" />
@@ -1127,7 +1143,7 @@
       </div>
       <div class="profile-box">
         <img src="image1/13.png" alt="Foto Agen 13" />
-        <p>Nama Agen 13</p>
+        <p>Wanzawawi</p>
       </div>
       <div class="profile-box">
         <img src="image1/14.png" alt="Foto Agen 14" />
