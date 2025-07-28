@@ -485,20 +485,24 @@
   flex: 1;
   min-width: 200px;
 }
+.infografis-slider {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 .infografis-slider .slides {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  justify-content: center; /* center horizontal */
+  align-items: center;     /* center vertical */
+  height: 75%;
 }
 
 .infografis-slider .slides img {
   display: none;
-  width: auto;
-  max-width: 80%;
-  max-height: 75vh; /* batasi tinggi jadi 75% tinggi layar */
-  margin: auto;
-  object-fit: contain; /* gambar tetap proporsional */
+  width: 75%;
+  height: auto;
+  margin: auto; /* jaga-jaga kalau pakai block bukan flex */
 }
 
 .infografis-slider .slides img.active {
@@ -510,11 +514,17 @@
     flex-direction: column;
   }
 
-  .infografis-slider .slides img {
-    max-width: 90%;
-    max-height: 60vh;
+  .infografis-slider img {
+    width: 100%;
+    height: auto;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: auto !important;
   }
 }
+
 
     </style>
 
