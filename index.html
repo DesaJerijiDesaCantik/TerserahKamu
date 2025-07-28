@@ -452,12 +452,65 @@
       .sub-content.active-content {
         display: block;
       }
+      .sidebar,
+      .content-area {
+       margin: 25px; /* Atur semua sisi */
+      }
 
       @media screen and (max-width: 768px) {
         .data-container {
           flex-direction: column;
         }
       }
+
+      /* 2 Kolom di Sub Menu Permata Jeriji */
+      .info-section {
+       display: flex;
+       flex-wrap: wrap;
+       gap: 20px;
+       align-items: flex-start;
+      }
+
+      .logo-column {
+       flex: 0 0 120px; /* ukuran tetap */
+      }
+
+.logo-img {
+  width: 100%;
+  height: auto;
+  max-width: 120px;
+}
+
+.text-column {
+  flex: 1;
+  min-width: 200px;
+}
+.infografis-slider {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.infografis-slider .slides img {
+  display: none;
+  width: 75%;
+  height: auto;
+}
+.infografis-slider .slides img.active {
+  display: block;
+}
+@media (max-width: 768px) {
+  .infografis-slider img {
+    width: 100%;
+    height: auto;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+
     </style>
 
     <!-- ikon -->
@@ -761,32 +814,145 @@
       <div class="data-container">
         <div class="sidebar">
           <ul>
-            <li class="active" data-id="sekilas"><i class="fas fa-info-circle"></i>  Sekilas Permata Jeriji</li>
-            <li data-id="infografis"><i class="fas fa-chart-pie"></i>  Infografis dan Booklet</li>
-            <li data-id="publikasi"><i class="fas fa-book"></i>  Publikasi Permata Jeriji</li>
-            <li data-id="podes"><i class="fas fa-folder-open"></i>  Publikasi Podes</li>
-            <li data-id="statistik"><i class="fas fa-database"></i>  Data Statistik</li>
-            <li data-id="metadata"><i class="fas fa-receipt"></i>  Metadata</li>
+            <li class="active" data-id="sekilas"><i class="fas fa-info-circle"></i>        Sekilas Permata Jeriji</li>
+            <li data-id="infografis"><i class="fas fa-chart-pie"></i>        Infografis dan Booklet</li>
+            <li data-id="publikasi"><i class="fas fa-book"></i>        Publikasi Permata Jeriji</li>
+            <li data-id="podes"><i class="fas fa-folder-open"></i>        Publikasi Podes</li>
+            <li data-id="statistik"><i class="fas fa-database"></i>        Data Statistik</li>
+            <li data-id="metadata"><i class="fas fa-receipt"></i>        Metadata</li>
           </ul>
         </div>
 
         <div class="content-area">
           <div id="sekilas" class="sub-content active-content">
-            <h3>Sekilas Permata Jeriji</h3>
-            <p>Konten singkat tentang Permata Jeriji...</p>
+            <h3 style="color: #3f72af;">
+             <i class="fas fa-info-circle" style="color: #3f72af; margin-right: 8px;"></i>
+              Sekilas Permata Jeriji
+              <br></br>
+            </h3>
+            <div class="info-section">
+             <div class="logo-column">
+               <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" alt="Logo Permata Jeriji" class="logo-img">
+            </div>
+            <div class="text-column">
+              <p style="text-align: justify; line-height: 1.8;">
+               <strong>Permata Jeriji</strong> atau <strong>Pendataan Rumah Masyarakat secara Terpadu Desa Jeriji</strong> merupakan bagian dari 
+               kegiatan Desa Cinta Statistik (Desa Cantik) yang diselenggarakan oleh BPS Kabupaten Bangka Selatan. 
+              Kegiatan ini merupakan upaya strategis untuk memperoleh data yang lebih akurat, 
+             khususnya terkait kondisi hunian layak di wilayah Desa Jeriji, Kecamatan Toboali, Kabupaten Bangka Selatan.
+           </p>
           </div>
+        </div>
+            </div>
+        <!-- INFOGRAFIS DAN BOOKLET -->
           <div id="infografis" class="sub-content">
-            <h3>Infografis dan Booklet</h3>
-            <p>Infografis dan booklet yang tersedia...</p>
+            <h3 style="color: #3f72af;">
+              <i class="fas fa-chart-pie" style="color: #3f72af; margin-right: 8px;"></i>
+              Infografis dan Booklet
+              <br></br>
+              </h3>
+            <h3 style="color: #3f72af; text-align: center;">
+              Infografis Permata Jeriji
+              <br></br>
+            </h3>
+              <div class="infografis-slider" style="display: flex; justify-content: center;">
+          <div class="slides" style="text-align: center">
+           <img src="https://kukuh.desa.id/desa/upload/galeri/kecil_x6CzeH_Logo%20DESCAN_1_002.png" class="slide active" style="max-width: 80%; height: auto;">
+           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" class="slide" style="max-width: 80%; height: auto;">
+           <!-- ... sampai 22 gambar -->
+        </div>
+        </div>
+        <!-- Bagian Booklet -->
+<div style="margin-top: 30px;">
+  <h3 style="color: #3f72af; text-align: center;">
+    <i class="fas fa-book-open" style="color: #3f72af; margin-right: 8px;"></i>
+    Booklet Permata Jeriji
+  </h3>
+
+  <!-- Embed FlipHTML5 -->
+  <div style="text-align: center; margin-top: 16px;">
+    <iframe src="https://online.fliphtml5.com/vbeel/dyph/" 
+            width="100%" 
+            height="500" 
+            frameborder="0" 
+            allowfullscreen
+            style="max-width: 700px; width: 100%;">
+    </iframe>
+  </div>
+
+  <!-- Tombol Unduh -->
+  <div style="text-align: center; margin-top: 16px;">
+    <a href="https://online.fliphtml5.com/vbeel/dyph/files/large.pdf" 
+       target="_blank" 
+       style="display: inline-block; background-color: #3f72af; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">
+      <i class="fas fa-download" style="margin-right: 8px;"></i>Unduh Booklet (PDF)
+    </a>
+  </div>
+</div>
           </div>
+
+<!-- PUBLIKASI PERMATA JERIJI -->
           <div id="publikasi" class="sub-content">
-            <h3>Publikasi Permata Jeriji</h3>
-            <p>Daftar publikasi yang relevan...</p>
+              <h3 style="color: #3f72af;">
+              <i class="fas fa-book" style="color: #3f72af; margin-right: 8px;"></i>
+              Publikasi Permata Jeriji
+              <br></br>
+              </h3>
+             <!-- Embed FlipHTML5 -->
+              <div style="text-align: center; margin-top: 16px;">
+               <iframe src="https://online.fliphtml5.com/vbeel/gmwf/" 
+               width="100%" 
+               height="500" 
+               frameborder="0" 
+               allowfullscreen
+              style="max-width: 700px; width: 100%;">
+             </iframe>
+            </div>
+
+  <!-- Tombol Unduh -->
+  <div style="text-align: center; margin-top: 16px;">
+    <a href="https://raw.githubusercontent.com/DesaJerijiDesaCantik/TerserahKamu/main/image1/Publikasi%20Permata%20Jeriji%20Rev.pdf"
+       download
+      target="_blank"
+      style="display: inline-block; background-color: #3f72af; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">
+     <i class="fas fa-download" style="margin-right: 8px;"></i>Unduh Booklet (PDF)
+    </a>
+
+  </div>
           </div>
+
+<!-- PUBLIKASI PODES -->
           <div id="podes" class="sub-content">
-            <h3>Publikasi Podes</h3>
-            <p>Data Podes terbaru dan lampau...</p>
+            <h3 style="color: #3f72af;">
+              <i class="fas fa-folder-open" style="color: #3f72af; margin-right: 8px;"></i>
+              Publikasi Potensi Desa Jeriji Tahun 2024
+              <br></br>
+              </h3>
+             <!-- Embed FlipHTML5 -->
+              <div style="text-align: center; margin-top: 16px;">
+               <iframe src="https://online.fliphtml5.com/vbeel/myia/" 
+               width="100%" 
+               height="500" 
+               frameborder="0" 
+               allowfullscreen
+              style="max-width: 700px; width: 100%;">
+             </iframe>
+            </div>
+
+             <!-- Tombol Unduh -->
+               <div style="text-align: center; margin-top: 16px;">
+                <a href="https://raw.githubusercontent.com/DesaJerijiDesaCantik/TerserahKamu/main/image1/Publikasi%20Potensi%20Desa%20(Podes)%20Jeriji%20Tahun%202024.pdf"
+                  download
+                  target="_blank"
+                  style="display: inline-block; background-color: #3f72af; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">
+                <i class="fas fa-download" style="margin-right: 8px;"></i>Unduh Publikasi Podes 2024 (PDF)
+                </a>
+             </div>
           </div>
+
+
+
+
           <div id="statistik" class="sub-content">
             <h3>Data Statistik</h3>
             <p>Angka-angka penting tentang perumahan...</p>
@@ -877,59 +1043,59 @@
     <div class="slider-container">
     <div class="slider">
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 1" />
+        <img src="image1/1.png" alt="Foto Agen 1" />
         <p>Nama Agen 1</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 2" />
+        <img src="image1/2.png" alt="Foto Agen 2" />
         <p>Nama Agen 2</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 3" />
+        <img src="image1/3.png" alt="Foto Agen 3" />
         <p>Nama Agen 3</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 4" />
+        <img src="image1/4.png" alt="Foto Agen 4" />
         <p>Nama Agen 4</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 5" />
+        <img src="image1/5.png" alt="Foto Agen 5" />
         <p>Nama Agen 5</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 6" />
+        <img src="image1/6.png" alt="Foto Agen 6" />
         <p>Nama Agen 6</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 7" />
+        <img src="image1/7.png" alt="Foto Agen 7" />
         <p>Nama Agen 7</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 8" />
+        <img src="image1/8.png" alt="Foto Agen 8" />
         <p>Nama Agen 8</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 9" />
+        <img src="image1/9.png" alt="Foto Agen 9" />
         <p>Nama Agen 9</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 10" />
+        <img src="image1/10.png" alt="Foto Agen 10" />
         <p>Nama Agen 10</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 11" />
+        <img src="image1/11.png" alt="Foto Agen 11" />
         <p>Nama Agen 11</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 12" />
+        <img src="image1/12.png" alt="Foto Agen 12" />
         <p>Nama Agen 12</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 13" />
+        <img src="image1/13.png" alt="Foto Agen 13" />
         <p>Nama Agen 13</p>
       </div>
       <div class="profile-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lambang_Kabupaten_Bangka_Selatan.png/250px-Lambang_Kabupaten_Bangka_Selatan.png" alt="Foto Agen 14" />
+        <img src="image1/14.png" alt="Foto Agen 14" />
         <p>Nama Agen 14</p>
       </div>
     </div>
@@ -997,7 +1163,7 @@
     <div class="floating-menu">
       <a href="#beranda"><i class="fas fa-home"></i><span>Beranda</span></a>
       <a href="#tujuan"
-        ><i class="fa-solid fa-circle-info"></i
+        ><i class="fas fa-solid fa-circle-info"></i
         ><span>Seputar Desa Cantik</span></a
       >
       <a href="#permatajeriji"
@@ -1097,6 +1263,20 @@
     });
 
   }); // end of DOMContentLoaded
+</script>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".infografis-slider .slide");
+
+  function showNextSlide() {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+  }
+
+  slides[0].classList.add("active"); // tampilkan pertama
+  setInterval(showNextSlide, 3000); // 3 detik
 </script>
 
   </body>
