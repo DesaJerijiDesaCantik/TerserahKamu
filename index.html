@@ -202,12 +202,15 @@
         background-color: #b1c6e5; /* warna hover */
         color: #000;
       }
-      .slider-container {
+
+.slider-container {
   overflow-x: auto;
   white-space: nowrap;
   padding: 0 20px;
-  margin-bottom: 40px;
+  margin: 0 auto 40px auto; /* auto kiri-kanan = center */
+  max-width: 1000px; /* atur ukuran kontainer, bebas kamu sesuaikan */
 }
+
 
 .slider {
   display: flex;
@@ -1090,7 +1093,12 @@
 </section>
     <!-- Agen Statistik -->
 <section id="agenstatistik" style="padding: 40px 30px; background-color: #f4f4f4;">
-  <h2 style="text-align: center; color: #3f72af;">Kenalan, yuk! Inilah para Agen Statistik Desa Jeriji yang siap membawa perubahan berbasis data</h2>
+    <h2 style="
+    text-align: center;
+    color: #3f72af;
+    max-width: 800px;
+    margin: 0 auto 30px;
+  "> Kenalan, yuk! Inilah para Agen Statistik Desa Jeriji yang siap membawa perubahan berbasis data</h2>
     <div class="slider-container">
     <div class="slider">
       <div class="profile-box">
