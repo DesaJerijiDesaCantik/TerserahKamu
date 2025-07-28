@@ -394,7 +394,70 @@
 .slider-foto button:hover {
   background-color: rgba(255,255,255,0.9);
 }
+/* DATA PERUMAHAN */
+      .data-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
 
+      .sidebar {
+        flex: 1 1 200px;
+        background-color: #f0f0f0;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        padding: 6px 8px;
+        font-size: 13px;
+        white-space: normal;
+        height: auto;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        color: #3f72af;
+        font-weight: bold;
+      }
+
+      .sidebar ul li:hover {
+        background-color: #dbe9ff;
+      }
+
+      .sidebar ul li.active {
+        background-color: #3f72af;
+        color: white;
+      }
+
+      .content-area {
+        flex: 3 1 600px;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .sub-content {
+        display: none;
+      }
+
+      .sub-content.active-content {
+        display: block;
+      }
+
+      @media screen and (max-width: 768px) {
+        .data-container {
+          flex-direction: column;
+        }
+      }
     </style>
 
     <!-- ikon -->
@@ -690,6 +753,53 @@
         </ul>
       </div>
     </div>
+  <!-- Data Perumahan -->
+    <section id="permatajeriji" class="content-section">
+      <h2 style="text-align: center; color: #3f72af">
+        Data Perumahan Desa Jeriji
+      </h2>
+      <div class="data-container">
+        <div class="sidebar">
+          <ul>
+            <li class="active" data-id="sekilas"><i class="fas fa-info-circle"></i>  Sekilas Permata Jeriji</li>
+            <li data-id="infografis"><i class="fas fa-chart-pie"></i>  Infografis dan Booklet</li>
+            <li data-id="publikasi"><i class="fas fa-book"></i>  Publikasi Permata Jeriji</li>
+            <li data-id="podes"><i class="fas fa-folder-open"></i>  Publikasi Podes</li>
+            <li data-id="statistik"><i class="fas fa-database"></i>  Data Statistik</li>
+            <li data-id="metadata"><i class="fas fa-receipt"></i>  Metadata</li>
+          </ul>
+        </div>
+
+        <div class="content-area">
+          <div id="sekilas" class="sub-content active-content">
+            <h3>Sekilas Permata Jeriji</h3>
+            <p>Konten singkat tentang Permata Jeriji...</p>
+          </div>
+          <div id="infografis" class="sub-content">
+            <h3>Infografis dan Booklet</h3>
+            <p>Infografis dan booklet yang tersedia...</p>
+          </div>
+          <div id="publikasi" class="sub-content">
+            <h3>Publikasi Permata Jeriji</h3>
+            <p>Daftar publikasi yang relevan...</p>
+          </div>
+          <div id="podes" class="sub-content">
+            <h3>Publikasi Podes</h3>
+            <p>Data Podes terbaru dan lampau...</p>
+          </div>
+          <div id="statistik" class="sub-content">
+            <h3>Data Statistik</h3>
+            <p>Angka-angka penting tentang perumahan...</p>
+          </div>
+          <div id="metadata" class="sub-content">
+            <h3>Metadata</h3>
+            <p>Metadata dududuudu...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 <!-- Galeri -->
 <section id="galeri" style="padding: 40px 30px; background-color: #fafafa;">
   <h2 style="text-align: center; color: #3f72af; margin-bottom: 10px;">
@@ -826,6 +936,7 @@
   </div>
 </div>
 
+<!-- Perjalanan Desa Cantik -->
 <section id="kilasbalik">
   <h2 style="text-align: center; color: #3f72af; margin-bottom: 10px;">Perjalanan Desa Cantik 🌾</h2>
   <p style="text-align: center; margin-bottom: 30px;">Jejak langkah Desa Jeriji dalam mewujudkan pembangunan berbasis data, lewat berbagai kegiatan inspiratif! 🚀</p>
@@ -901,88 +1012,92 @@
       >
     </div>
 
-    <script>
-            // Ambil semua menu
-            const navLinks = document.querySelectorAll(".navbar a");
+<script>
+  // Efek klik menu utama navbar
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".navbar a");
+    const floatLinks = document.querySelectorAll(".floating-menu a");
+    const sections = document.querySelectorAll("section");
 
-            navLinks.forEach((link) => {
-              link.addEventListener("click", () => {
-                // Hapus class active-menu dari semua
-                navLinks.forEach((item) => item.classList.remove("active-menu"));
-                // Tambah class active-menu ke yang diklik
-                link.classList.add("active-menu");
-              });
-            });
-            /* Efek Menu di Bawah */
-      <script>
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll(".navbar a");
-        const floatLinks = document.querySelectorAll(".floating-menu a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.forEach((item) => item.classList.remove("active-menu"));
+        link.classList.add("active-menu");
+      });
+    });
 
-        function updateActiveMenu() {
-          let currentId = "";
-          sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 120 && rect.bottom > 120) {
-              currentId = "#" + section.id;
-            }
-          });
+    floatLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        floatLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
 
-          // Navbar utama
-          navLinks.forEach((link) => {
-            link.classList.toggle("active-menu", link.getAttribute("href") === currentId);
-          });
-
-          // Menu floating bawah
-          floatLinks.forEach((link) => {
-            link.classList.toggle("active", link.getAttribute("href") === currentId);
-          });
+    function updateActiveMenu() {
+      let currentId = "";
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom > 120) {
+          currentId = "#" + section.id;
         }
+      });
 
-        window.addEventListener("scroll", updateActiveMenu);
-        window.addEventListener("load", updateActiveMenu);
-        floatLinks.forEach(link => {
-          link.addEventListener("click", () => {
-            floatLinks.forEach(l => l.classList.remove("active"));
-            link.classList.add("active");
-          });
-        });
+      navLinks.forEach((link) => {
+        link.classList.toggle("active-menu", link.getAttribute("href") === currentId);
+      });
 
-  document.querySelectorAll('.slider-foto').forEach(slider => {
-    const slides = slider.querySelectorAll('.slide');
-    let currentIndex = 0;
+      floatLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === currentId);
+      });
+    }
 
-    const showSlide = (index) => {
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[index].classList.add('active');
-    };
+    window.addEventListener("scroll", updateActiveMenu);
+    window.addEventListener("load", updateActiveMenu);
 
-    const nextSlide = () => {
-      currentIndex = (currentIndex + 1) % slides.length;
+    // Slider foto
+    document.querySelectorAll('.slider-foto').forEach(slider => {
+      const slides = slider.querySelectorAll('.slide');
+      let currentIndex = 0;
+
+      const showSlide = (index) => {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+      };
+
+      const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      };
+
+      const prevSlide = () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      };
+
+      slider.querySelector('.prev').addEventListener('click', prevSlide);
+      slider.querySelector('.next').addEventListener('click', nextSlide);
+
+      setInterval(nextSlide, 2000);
       showSlide(currentIndex);
-    };
-
-    const prevSlide = () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    };
-
-    // Tombol manual
-    slider.querySelector('.prev').addEventListener('click', () => {
-      prevSlide();
     });
 
-    slider.querySelector('.next').addEventListener('click', () => {
-      nextSlide();
+    // Sidebar submenu (Data Perumahan)
+    const menuItems = document.querySelectorAll(".sidebar ul li");
+    const subContents = document.querySelectorAll(".sub-content");
+
+    menuItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        menuItems.forEach((i) => i.classList.remove("active"));
+        subContents.forEach((c) => c.classList.remove("active-content"));
+
+        const targetId = item.getAttribute("data-id");
+        item.classList.add("active");
+        document.getElementById(targetId).classList.add("active-content");
+      });
     });
 
-    // Auto-slide
-    setInterval(() => {
-      nextSlide();
-    }, 4000);
+  }); // end of DOMContentLoaded
+</script>
 
-    showSlide(currentIndex);
-  });
-    </script>
   </body>
 </html>
