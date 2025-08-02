@@ -609,6 +609,60 @@
   }
 }
 
+/* RESPONSIF DATA */
+@media (max-width: 460px) {
+  #dkependudukan .data-dropdown-container {
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 10px 15px 30px 10px !important; /* kanan 15px, kiri 10px */
+    width: 100% !important;
+  }
+
+  #dkependudukan select,
+  #dkependudukan button {
+    width: 100% !important;
+    font-size: 13px !important;
+  }
+
+  #dkependudukan h3,
+  #dkependudukan h4 {
+    font-size: 16px !important;
+    margin-left: 5px; /* supaya lebih mepet */
+  }
+
+  #dkependudukan table {
+    width: 100% !important;
+    font-size: 12px !important;
+  }
+
+  #dkependudukan canvas {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  #dkependudukan th,
+  #dkependudukan td {
+    padding: 6px !important;
+  }
+
+  #dkependudukan .sub-content {
+    padding: 0 10px !important; /* kiri-kanan */
+    margin: 0 !important;
+  }
+
+  /* Bisa dihapus jika sudah cukup pakai .sub-content */
+  /* #dkependudukan {
+    padding: 0 10px !important;
+    margin: 0 !important;
+  } */
+}
+
+
+
+
+
+
 
     </style>
 
@@ -1083,122 +1137,69 @@
     <i class="fas fa-chart-pie" style="margin-right: 6px;"></i> Data Kependudukan
   </h3>
 
-  <!-- Style -->
-  <style>
-    #grafikPenduduk {
-      width: 100%;
-      max-width: 600px;
-      height: 220px !important;
-      margin: 20px auto;
-      display: block;
-    }
+  <!-- Paragraf Penjelas -->
+  <p style="margin-top: 10px; margin-bottom: 20px; font-size: 14px; color: #555;">
+    Data Kependudukan ini bersumber dari <em>Profil Desa Jeriji</em> Tahun 2023, 2024, dan 2025.
+  </p>
 
-    .selector-box {
-      margin-bottom: 30px;
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      background-color: #f4f8fc;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #dbe9f4;
-    }
-
-    .selector-box label {
-      font-weight: bold;
-    }
-
-    .selector-box select {
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    table {
-      width: 100%;
-      margin-top: 15px;
-      border-collapse: collapse;
-      text-align: center;
-    }
-
-    table th, table td {
-      padding: 8px;
-      border: 1px solid #ccc;
-    }
-
-    table thead {
-      background-color: #dbe9f4;
-    }
-
-    .btn-unduh {
-      padding: 6px 12px;
-      background-color: #3f72af;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .sumber {
-      font-size: 12px;
-      color: #555;
-      text-align: left;
-      margin-top: 5px;
-    }
-  </style>
-
-  <!-- Pilihan -->
-  <div class="selector-box">
+  <!-- Box Pilihan Data -->
+  <div style="margin-bottom: 30px; display: flex; gap: 30px; flex-wrap: wrap; background-color: #f4f8fc; padding: 20px; border-radius: 10px; border: 1px solid #dbe9f4;">
     <div>
-      <label for="dataSelector">📂 Pilih Jenis Data:</label><br />
-      <select id="dataSelector">
+      <label for="dataSelector" style="font-weight: bold; color: #112d4e">📂 Pilih Jenis Data:</label><br />
+      <select id="dataSelector" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; color: #112d4e">
         <option value="penduduk">Jumlah Penduduk</option>
-        <option value="miskin">Jumlah Warga Miskin</option>
-        <option value="lansia">Jumlah Lansia</option>
-        <option value="pemuda">Jumlah Pemuda</option>
-        <option value="kk">Jumlah Kepala Keluarga</option>
+        <option value="laki">Jumlah Penduduk Laki-Laki</option>
+        <option value="perempuan">Jumlah Penduduk Perempuan</option>
+        <option value="keluarga">Jumlah Keluarga</option>
+        <option value="wajibbljr">Jumlah Penduduk yang Telah Mengikuti Wajib Belajar 9 Tahun</option>
+        <option value="sd">Jumlah Penduduk Lulusan Sekolah Dasar (SD)/Sederajat </option>
+        <option value="smp">Jumlah Penduduk Lulusan Sekolah Menengah Pertama (SMP)/Sederajat</option>
+        <option value="sma">Jumlah Penduduk Lulusan Sekolah Menengah Atas (SMP)/Sederajat</option>
+        <option value="menganggur">Jumlah Penduduk yang Tidak Bekerja/Menganggur</option>
+        <option value="bekerja">Jumlah Penduduk yang Bekerja</option>
+        <option value="tani">Jumlah Penduduk yang Bekerja Sebagai Petani dan Buruh Tani</option>
+
       </select>
     </div>
-    <div>
-      <label for="yearSelector">📅 Pilih Tahun:</label><br />
-      <select id="yearSelector">
-        <option value="2023">2023</option>
-        <option value="2024">2024</option>
-        <option value="2025" selected>2025</option>
-      </select>
-    </div>
+    <!-- Dropdown Tahun Dihilangkan -->
   </div>
 
-  <!-- Judul Dinamis -->
-  <h4 id="judulUtama" style="color: #112d4e; margin-bottom: 10px;"></h4>
+  <!-- Judul Utama Dinamis -->
+    <h4 id="judulUtama" style="color: #112d4e; text-align: center; margin-bottom: 10px;"></h4>
 
   <!-- Grafik -->
-  <canvas id="grafikPenduduk"></canvas>
-  <p id="sumberGrafik" class="sumber"></p>
+  <div style="max-width: 700px; width: 100%; margin: 0 auto;">
+    <canvas id="grafikPenduduk"></canvas>
+  </div>
+
+  <!-- Sumber Grafik -->
+  <p id="sumberGrafik" style="font-size: 12px; color: #555; text-align: left; margin-top: 5px;"></p>
 
   <!-- Judul Tabel -->
-  <h4 id="judulTabel" style="margin-top: 40px; color: #3f72af;">📋 Tabel Jumlah Penduduk per Dusun</h4>
+    <h4 id="judulTabel" style="margin-top: 40px; color: #112d4e; text-align: center;"></h4>
 
-  <!-- Tabel -->
-  <table id="tabelPenduduk">
-    <thead>
-      <tr>
-        <th>Dusun</th>
-        <th>Jumlah</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <!-- Unduh -->
-  <div style="text-align: right; margin-top: 10px;">
-    <button onclick="downloadTabelPenduduk()" class="btn-unduh">
-      <i class="fas fa-download"></i> Unduh Tabel
-    </button>
+  <!-- Tabel Responsive -->
+  <div style="overflow-x: auto;">
+    <table id="tabelPenduduk" border="1" style="width: 100%; font-size: 14px; min-width: 400px; margin-top: 15px; border-collapse: collapse; text-align: center;">
+      <thead style="background-color: #dbe9f4;">
+        <tr>
+          <th>Dusun</th>
+          <th>Jumlah</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 
   <!-- Sumber Tabel -->
-  <p id="sumberTabel" class="sumber"></p>
+  <p id="sumberTabel" style="font-size: 12px; color: #555; text-align: left; margin-top: 5px;"></p>
+
+  <!-- Tombol Unduh -->
+  <div style="text-align: right; margin-top: 10px;">
+    <button onclick="downloadTabelPenduduk()" style="padding: 6px 12px; background-color: #3f72af; color: white; border: none; border-radius: 4px;">
+      <i class="fas fa-download"></i> Unduh Tabel
+    </button>
+  </div>
 </div>
 
 
@@ -1931,127 +1932,171 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const dataKependudukan = {
-    penduduk: {
-      label: 'Jumlah Penduduk',
-      data: {
-        2023: [210, 180, 190, 230, 220],
-        2024: [215, 185, 195, 240, 225],
-        2025: [220, 190, 200, 250, 230],
-      }
-    },
-    miskin: {
-      label: 'Jumlah Warga Miskin',
-      data: {
-        2023: [30, 25, 28, 35, 32],
-        2024: [28, 22, 26, 34, 30],
-        2025: [25, 20, 24, 30, 28],
-      }
-    },
-    lansia: {
-      label: 'Jumlah Lansia',
-      data: {
-        2023: [18, 20, 22, 24, 26],
-        2024: [19, 21, 23, 25, 27],
-        2025: [20, 22, 24, 26, 28],
-      }
-    },
-    pemuda: {
-      label: 'Jumlah Pemuda',
-      data: {
-        2023: [70, 60, 65, 80, 75],
-        2024: [72, 62, 67, 82, 77],
-        2025: [75, 65, 70, 85, 80],
-      }
-    },
-    kk: {
-      label: 'Jumlah Kepala Keluarga',
-      data: {
-        2023: [50, 45, 48, 52, 49],
-        2024: [52, 47, 50, 55, 51],
-        2025: [55, 50, 53, 58, 54],
+const dataSeries = {
+  penduduk: {
+    label: 'Jumlah Penduduk',
+    data: {
+      2023: 2534,
+      2024: 2526,
+      2025: 2534
+    }
+  },
+    laki: {
+    label: 'Jumlah Penduduk Laki-Laki',
+    data: {
+      2023: 2534,
+      2024: 2526,
+      2025: 2534
+    }
+  },
+    perempuan: {
+    label: 'Jumlah Penduduk Perempuan',
+    data: {
+      2023: 2534,
+      2024: 2526,
+      2025: 2534
+    }
+  },
+  keluarga: {
+    label: 'Jumlah Keluarga',
+    data: {
+      2023: 815,
+      2024: 869,
+      2025: 819
+    }
+  },
+  wajibbljr: {
+    label: 'Jumlah Penduduk yang Telah Mengikuti Wajib Belajar 9 Tahun',
+    data: {
+      2023: 364,
+      2024: 364,
+      2025: 364
+    }
+  },
+  sd: {
+    label: 'Jumlah Penduduk Lulusan Sekolah Dasar (SD)/Sederajat',
+    data: {
+      2023: 364,
+      2024: 364,
+      2025: 364
+    }
+  },
+  smp: {
+    label: 'Jumlah Penduduk Lulusan Sekolah Menengah Pertama (SMP)/Sederajat',
+    data: {
+      2023: 364,
+      2024: 364,
+      2025: 364
+    }
+  },
+  sma: {
+    label: 'Jumlah Penduduk Lulusan Sekolah Menengah Atas (SMA)/Sederajat',
+    data: {
+      2023: 364,
+      2024: 364,
+      2025: 364
+    }
+  },
+  menganggur: {
+    label: 'Jumlah Penduduk Tidak Bekerja/Menganggur',
+    data: {
+      2023: 364,
+      2024: 364,
+      2025: 364
+    }
+  },
+  bekerja: {
+    label: 'Jumlah Penduduk yang Bekerja',
+    data: {
+      2023: 166,
+      2024: 176,
+      2025: 185
+    }
+  },
+  tani: {
+    label: 'Jumlah Penduduk yang Bekerja Sebagai Petani dan Buruh Tani',
+    data: {
+      2023: 166,
+      2024: 176,
+      2025: 185
+    }
+  },
+};
+
+// Siapkan chart
+const ctx = document.getElementById('grafikPenduduk').getContext('2d');
+let chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['2023', '2024', '2025'],
+    datasets: [{
+      label: '',
+      data: [],
+      backgroundColor: '#3f72af'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 2,
+    scales: {
+      y: {
+        beginAtZero: true
       }
     }
-  };
+  }
+});
 
-  const dusun = ['Dusun Air Tembuni', 'Dusun Air Saman', 'Dusun Air Besar Tengah', 'Dusun Air Tebat', 'Dusun Air Dentelur'];
-  const chartCtx = document.getElementById('grafikPenduduk').getContext('2d');
-  let chart;
+function updateContent() {
+  const selectedData = document.getElementById('dataSelector').value;
+  const dataset = dataSeries[selectedData];
 
-  function updateTampilan() {
-    const jenis = document.getElementById('dataSelector').value;
-    const tahun = document.getElementById('yearSelector').value;
-    const data = dataKependudukan[jenis].data[tahun];
-    const label = dataKependudukan[jenis].label;
-    const sumber = dataKependudukan[jenis].sumber;
+  // Update grafik
+  chart.data.datasets[0].label = dataset.label;
+  chart.data.datasets[0].data = Object.values(dataset.data);
+  chart.update();
 
-    // Judul
-    document.getElementById('judulUtama').textContent = `${label} di Desa Jeriji pada Tahun ${tahun}`;
-    document.getElementById('judulTabel').textContent = `📋 Tabel ${label} per Dusun`;
-    document.getElementById('sumberGrafik').textContent = sumber;
-    document.getElementById('sumberTabel').textContent = sumber;
+  // Judul grafik dan tabel
+  document.getElementById('judulUtama').innerText = `${dataset.label} di Desa Jeriji Tahun 2023–2025`;
+  document.getElementById('judulTabel').innerText = `Tabel ${dataset.label} Desa Jeriji Tahun 2023–2025`;
 
-    // Tabel
-    const tbody = document.querySelector('#tabelPenduduk tbody');
-    tbody.innerHTML = '';
-    dusun.forEach((d, i) => {
-      const row = `<tr><td>${d}</td><td>${data[i]}</td></tr>`;
-      tbody.innerHTML += row;
-    });
-    
-    // Update Sumber
-    document.getElementById("sumberGrafik").textContent = `Sumber: Profil Desa Jeriji ${tahun}`;
-    document.getElementById("sumberTabel").textContent = `Sumber: Profil Desa Jeriji ${tahun}`;
-
-
-    // Grafik
-    if (chart) chart.destroy();
-    chart = new Chart(chartCtx, {
-      type: 'bar',
-      data: {
-        labels: dusun,
-        datasets: [{
-          label: label,
-          data: data,
-          backgroundColor: '#3f72af'
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false }
-        },
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
+  // Update tabel
+  const tbody = document.querySelector('#tabelPenduduk tbody');
+  tbody.innerHTML = '';
+  for (let year of ['2023', '2024', '2025']) {
+    const row = `<tr><td>${year}</td><td>${dataset.data[year]}</td></tr>`;
+    tbody.insertAdjacentHTML('beforeend', row);
   }
 
-  function downloadTabelPenduduk() {
-    const jenis = document.getElementById('dataSelector').value;
-    const tahun = document.getElementById('yearSelector').value;
-    const label = dataKependudukan[jenis].label;
-    let csv = `Dusun,${label} (${tahun})\n`;
-    dusun.forEach((d, i) => {
-      csv += `${d},${dataKependudukan[jenis].data[tahun][i]}\n`;
-    });
+  // Update sumber
+  const sumberText = `Sumber: Profil Desa Jeriji Tahun 2023, 2024, dan 2025`;
+  document.getElementById('sumberGrafik').textContent = sumberText;
+  document.getElementById('sumberTabel').textContent = sumberText;
+}
 
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${label.replace(/\s/g, "_").toLowerCase()}_${tahun}.csv`;
-    a.click();
-    window.URL.revokeObjectURL(url);
+function downloadTabelPenduduk() {
+  const selectedData = document.getElementById('dataSelector').value;
+  const label = dataSeries[selectedData].label;
+  const filename = `tabel_${label.replace(/\s+/g, '_').toLowerCase()}_DesaJeriji_2023-2025.csv`;
+
+  let csvContent = 'Tahun,Jumlah\n';
+  for (let year of ['2023', '2024', '2025']) {
+    csvContent += `${year},${dataSeries[selectedData].data[year]}\n`;
   }
 
-  // Inisialisasi
-  document.getElementById('dataSelector').addEventListener('change', updateTampilan);
-  document.getElementById('yearSelector').addEventListener('change', updateTampilan);
-  updateTampilan();
+  const blob = new Blob([csvContent], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById('dataSelector').addEventListener('change', updateContent);
+
+// Inisialisasi awal
+updateContent();
 </script>
 
 
