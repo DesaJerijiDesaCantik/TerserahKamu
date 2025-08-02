@@ -1152,20 +1152,18 @@
         <option value="perempuan">Jumlah Penduduk Perempuan</option>
         <option value="keluarga">Jumlah Keluarga</option>
         <option value="wajibbljr">Jumlah Penduduk yang Telah Mengikuti Wajib Belajar 9 Tahun</option>
-        <option value="sd">Jumlah Penduduk Lulusan Sekolah Dasar (SD)/Sederajat </option>
-        <option value="smp">Jumlah Penduduk Lulusan Sekolah Menengah Pertama (SMP)/Sederajat</option>
-        <option value="sma">Jumlah Penduduk Lulusan Sekolah Menengah Atas (SMP)/Sederajat</option>
-        <option value="menganggur">Jumlah Penduduk yang Tidak Bekerja/Menganggur</option>
+        <option value="sd">Jumlah Penduduk Lulusan SD</option>
+        <option value="smp">Jumlah Penduduk Lulusan SMP</option>
+        <option value="sma">Jumlah Penduduk Lulusan SMA</option>
+        <option value="menganggur">Jumlah Penduduk yang Tidak Bekerja</option>
         <option value="bekerja">Jumlah Penduduk yang Bekerja</option>
-        <option value="tani">Jumlah Penduduk yang Bekerja Sebagai Petani dan Buruh Tani</option>
-
+        <option value="tani">Penduduk Petani dan Buruh Tani</option>
       </select>
     </div>
-    <!-- Dropdown Tahun Dihilangkan -->
   </div>
 
   <!-- Judul Utama Dinamis -->
-    <h4 id="judulUtama" style="color: #112d4e; text-align: center; margin-bottom: 10px;"></h4>
+  <h4 id="judulUtama" style="color: #112d4e; text-align: center; margin-bottom: 10px;"></h4>
 
   <!-- Grafik -->
   <div style="max-width: 700px; width: 100%; margin: 0 auto;">
@@ -1176,14 +1174,14 @@
   <p id="sumberGrafik" style="font-size: 12px; color: #555; text-align: left; margin-top: 5px;"></p>
 
   <!-- Judul Tabel -->
-    <h4 id="judulTabel" style="margin-top: 40px; color: #112d4e; text-align: center;"></h4>
+  <h4 id="judulTabel" style="margin-top: 40px; color: #112d4e; text-align: center;"></h4>
 
   <!-- Tabel Responsive -->
   <div style="overflow-x: auto;">
     <table id="tabelPenduduk" border="1" style="width: 100%; font-size: 14px; min-width: 400px; margin-top: 15px; border-collapse: collapse; text-align: center;">
       <thead style="background-color: #dbe9f4;">
         <tr>
-          <th>Dusun</th>
+          <th>Tahun</th>
           <th>Jumlah</th>
         </tr>
       </thead>
@@ -1194,9 +1192,9 @@
   <!-- Sumber Tabel -->
   <p id="sumberTabel" style="font-size: 12px; color: #555; text-align: left; margin-top: 5px;"></p>
 
-  <!-- Tombol Unduh -->
+  <!-- Download Tabel (dipindahkan ke dalam #dkependudukan) -->
   <div style="text-align: right; margin-top: 10px;">
-    <button onclick="downloadTabelPenduduk()" style="padding: 6px 12px; background-color: #3f72af; color: white; border: none; border-radius: 4px;">
+    <button onclick="downloadSelected()" style="padding: 6px 12px; background-color: #3f72af; color: white; border: none; border-radius: 4px;">
       <i class="fas fa-download"></i> Unduh Tabel
     </button>
   </div>
@@ -2058,7 +2056,7 @@ function updateContent() {
 
   // Judul grafik dan tabel
   document.getElementById('judulUtama').innerText = `${dataset.label} di Desa Jeriji Tahun 2023–2025`;
-  document.getElementById('judulTabel').innerText = `Tabel ${dataset.label} Desa Jeriji Tahun 2023–2025`;
+  document.getElementById('judulTabel').innerText = `Tabel ${dataset.label} di Desa Jeriji Tahun 2023–2025`;
 
   // Update tabel
   const tbody = document.querySelector('#tabelPenduduk tbody');
@@ -2074,24 +2072,21 @@ function updateContent() {
   document.getElementById('sumberTabel').textContent = sumberText;
 }
 
-function downloadTabelPenduduk() {
-  const selectedData = document.getElementById('dataSelector').value;
-  const label = dataSeries[selectedData].label;
-  const filename = `tabel_${label.replace(/\s+/g, '_').toLowerCase()}_DesaJeriji_2023-2025.csv`;
+  function downloadSelected() {
+    const selectedValue = document.getElementById("dataSelector").value;
 
-  let csvContent = 'Tahun,Jumlah\n';
-  for (let year of ['2023', '2024', '2025']) {
-    csvContent += `${year},${dataSeries[selectedData].data[year]}\n`;
+    const url = `https://raw.githubusercontent.com/DesaJerijiDesaCantik/TerserahKamu/main/DataPenduduk/${selectedValue}.xlsx`;
+
+    // Buat elemen <a> untuk trigger download
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${selectedValue}.xlsx`;
+    a.style.display = "none";
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   }
-
-  const blob = new Blob([csvContent], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
-}
 
 document.getElementById('dataSelector').addEventListener('change', updateContent);
 
