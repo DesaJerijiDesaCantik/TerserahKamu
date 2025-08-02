@@ -556,8 +556,8 @@
 
 .infografis-slider2 {
   position: relative;
-  width: 10%;            /* dari 70% jadi setengahnya */
-  max-width: 250px;      /* dari 500px jadi setengahnya */
+  width: 30%;            /* dari 70% jadi setengahnya */
+  max-width: 400px;      /* dari 500px jadi setengahnya */
   margin: 20px auto;
   overflow: hidden;
   aspect-ratio: 663/943; /* tetap B5 */
@@ -1051,7 +1051,6 @@
   <img src="image1/Infografis 4.png" class="infografis-slide2 active" alt="Infografis 4">
   <img src="image1/Infografis 5.png" class="infografis-slide2" alt="Infografis 5">
   <img src="image1/Infografis 6.png" class="infografis-slide2" alt="Infografis 6">
-  <!-- Tambahkan sampai Infografis 24 -->
   <img src="image1/Infografis 7.png" class="infografis-slide2" alt="Infografis 7">
   <img src="image1/Infografis 8.png" class="infografis-slide2" alt="Infografis 8">
   <img src="image1/Infografis 9.png" class="infografis-slide2" alt="Infografis 9">
@@ -1078,16 +1077,135 @@
 </div>
 </div>
 
+<!-- Data Kependudukan -->
+<div id="dkependudukan" class="sub-content">
+  <h3 style="color: #3f72af;">
+    <i class="fas fa-chart-pie" style="margin-right: 6px;"></i> Data Kependudukan
+  </h3>
 
-      <!-- Data Kependudukan -->
-      <div id="dkependudukan" class="sub-content">
-        <h3 style="color: #3f72af;"><i class="fas fa-users" style="margin-right: 6px;"></i> Data Kependudukan</h3>
-        <p>Konten Kependudukan di sini</p>
-      </div>
+  <!-- Style -->
+  <style>
+    #grafikPenduduk {
+      width: 100%;
+      max-width: 600px;
+      height: 220px !important;
+      margin: 20px auto;
+      display: block;
+    }
+
+    .selector-box {
+      margin-bottom: 30px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      background-color: #f4f8fc;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #dbe9f4;
+    }
+
+    .selector-box label {
+      font-weight: bold;
+    }
+
+    .selector-box select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    table th, table td {
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+
+    table thead {
+      background-color: #dbe9f4;
+    }
+
+    .btn-unduh {
+      padding: 6px 12px;
+      background-color: #3f72af;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .sumber {
+      font-size: 12px;
+      color: #555;
+      text-align: left;
+      margin-top: 5px;
+    }
+  </style>
+
+  <!-- Pilihan -->
+  <div class="selector-box">
+    <div>
+      <label for="dataSelector">📂 Pilih Jenis Data:</label><br />
+      <select id="dataSelector">
+        <option value="penduduk">Jumlah Penduduk</option>
+        <option value="miskin">Jumlah Warga Miskin</option>
+        <option value="lansia">Jumlah Lansia</option>
+        <option value="pemuda">Jumlah Pemuda</option>
+        <option value="kk">Jumlah Kepala Keluarga</option>
+      </select>
+    </div>
+    <div>
+      <label for="yearSelector">📅 Pilih Tahun:</label><br />
+      <select id="yearSelector">
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025" selected>2025</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Judul Dinamis -->
+  <h4 id="judulUtama" style="color: #112d4e; margin-bottom: 10px;"></h4>
+
+  <!-- Grafik -->
+  <canvas id="grafikPenduduk"></canvas>
+  <p id="sumberGrafik" class="sumber"></p>
+
+  <!-- Judul Tabel -->
+  <h4 id="judulTabel" style="margin-top: 40px; color: #3f72af;">📋 Tabel Jumlah Penduduk per Dusun</h4>
+
+  <!-- Tabel -->
+  <table id="tabelPenduduk">
+    <thead>
+      <tr>
+        <th>Dusun</th>
+        <th>Jumlah</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Unduh -->
+  <div style="text-align: right; margin-top: 10px;">
+    <button onclick="downloadTabelPenduduk()" class="btn-unduh">
+      <i class="fas fa-download"></i> Unduh Tabel
+    </button>
+  </div>
+
+  <!-- Sumber Tabel -->
+  <p id="sumberTabel" class="sumber"></p>
+</div>
+
+
 
       <!-- Permata Jeriji -->
       <div id="dpermata" class="sub-content">
-        <h3 style="color: #3f72af;"><i class="fas fa-house-user" style="margin-right: 6px;"></i> Data Permata Jeriji</h3>
+        <h3 style="color: #3f72af;"><i class="fas fa-house-user" style="margin-right: 6px;"></i> Data Perumahan</h3>
         <p>Konten Data Permata Jeriji</p>
       </div>
     </div>
@@ -1810,54 +1928,132 @@
   });
 </script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-let slideIndex2 = 0;
-let slides2 = document.querySelectorAll('.infografis-slide2');
-let isPlaying2 = true;
-let interval2;
+  const dataKependudukan = {
+    penduduk: {
+      label: 'Jumlah Penduduk',
+      data: {
+        2023: [210, 180, 190, 230, 220],
+        2024: [215, 185, 195, 240, 225],
+        2025: [220, 190, 200, 250, 230],
+      }
+    },
+    miskin: {
+      label: 'Jumlah Warga Miskin',
+      data: {
+        2023: [30, 25, 28, 35, 32],
+        2024: [28, 22, 26, 34, 30],
+        2025: [25, 20, 24, 30, 28],
+      }
+    },
+    lansia: {
+      label: 'Jumlah Lansia',
+      data: {
+        2023: [18, 20, 22, 24, 26],
+        2024: [19, 21, 23, 25, 27],
+        2025: [20, 22, 24, 26, 28],
+      }
+    },
+    pemuda: {
+      label: 'Jumlah Pemuda',
+      data: {
+        2023: [70, 60, 65, 80, 75],
+        2024: [72, 62, 67, 82, 77],
+        2025: [75, 65, 70, 85, 80],
+      }
+    },
+    kk: {
+      label: 'Jumlah Kepala Keluarga',
+      data: {
+        2023: [50, 45, 48, 52, 49],
+        2024: [52, 47, 50, 55, 51],
+        2025: [55, 50, 53, 58, 54],
+      }
+    }
+  };
 
-function showSlide(index) {
-  slides2.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) slide.classList.add('active');
-  });
-}
+  const dusun = ['Dusun Air Tembuni', 'Dusun Air Saman', 'Dusun Air Besar Tengah', 'Dusun Air Tebat', 'Dusun Air Dentelur'];
+  const chartCtx = document.getElementById('grafikPenduduk').getContext('2d');
+  let chart;
 
-function nextSlide() {
-  slideIndex2 = (slideIndex2 + 1) % slides2.length;
-  showSlide(slideIndex2);
-}
+  function updateTampilan() {
+    const jenis = document.getElementById('dataSelector').value;
+    const tahun = document.getElementById('yearSelector').value;
+    const data = dataKependudukan[jenis].data[tahun];
+    const label = dataKependudukan[jenis].label;
+    const sumber = dataKependudukan[jenis].sumber;
 
-function plusSlide(n) {
-  slideIndex2 = (slideIndex2 + n + slides2.length) % slides2.length;
-  showSlide(slideIndex2);
-}
+    // Judul
+    document.getElementById('judulUtama').textContent = `${label} di Desa Jeriji pada Tahun ${tahun}`;
+    document.getElementById('judulTabel').textContent = `📋 Tabel ${label} per Dusun`;
+    document.getElementById('sumberGrafik').textContent = sumber;
+    document.getElementById('sumberTabel').textContent = sumber;
 
-function startSlide() {
-  interval2 = setInterval(nextSlide, 3000);
-}
+    // Tabel
+    const tbody = document.querySelector('#tabelPenduduk tbody');
+    tbody.innerHTML = '';
+    dusun.forEach((d, i) => {
+      const row = `<tr><td>${d}</td><td>${data[i]}</td></tr>`;
+      tbody.innerHTML += row;
+    });
+    
+    // Update Sumber
+    document.getElementById("sumberGrafik").textContent = `Sumber: Profil Desa Jeriji ${tahun}`;
+    document.getElementById("sumberTabel").textContent = `Sumber: Profil Desa Jeriji ${tahun}`;
 
-function stopSlide() {
-  clearInterval(interval2);
-}
 
-function toggleSlide() {
-  if (isPlaying2) {
-    stopSlide();
-    document.querySelector('.pause2').innerText = '▶️';
-  } else {
-    startSlide();
-    document.querySelector('.pause2').innerText = '⏸️';
+    // Grafik
+    if (chart) chart.destroy();
+    chart = new Chart(chartCtx, {
+      type: 'bar',
+      data: {
+        labels: dusun,
+        datasets: [{
+          label: label,
+          data: data,
+          backgroundColor: '#3f72af'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
   }
-  isPlaying2 = !isPlaying2;
-}
 
-// Init
-document.addEventListener("DOMContentLoaded", () => {
-  showSlide(slideIndex2);
-  startSlide();
-});
+  function downloadTabelPenduduk() {
+    const jenis = document.getElementById('dataSelector').value;
+    const tahun = document.getElementById('yearSelector').value;
+    const label = dataKependudukan[jenis].label;
+    let csv = `Dusun,${label} (${tahun})\n`;
+    dusun.forEach((d, i) => {
+      csv += `${d},${dataKependudukan[jenis].data[tahun][i]}\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${label.replace(/\s/g, "_").toLowerCase()}_${tahun}.csv`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+  }
+
+  // Inisialisasi
+  document.getElementById('dataSelector').addEventListener('change', updateTampilan);
+  document.getElementById('yearSelector').addEventListener('change', updateTampilan);
+  updateTampilan();
 </script>
+
 
 
   </body>
