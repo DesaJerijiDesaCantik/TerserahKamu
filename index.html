@@ -535,33 +535,6 @@
   height: 100%;
 }
 
-.infografis-slider .slides img {
-  display: none;
-  width: 75%;
-  height: auto;
-  margin: auto; /* jaga-jaga kalau pakai block bukan flex */
-}
-
-.infografis-slider .slides img.active {
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .infografis-slider .slides {
-    flex-direction: column;
-  }
-
-  .infografis-slider img {
-    width: 100%;
-    height: auto;
-  }
-
-  iframe {
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-
 .collapsible {
   font-family: 'Poppins', sans-serif; /* Ganti font */
   font-size: 14px;                    /* Ukuran font */
@@ -591,6 +564,70 @@
   background-color: #f9f9f9;
   border-left: 3px solid #3f72af;
   border-radius: 0 0 5px 5px;
+}
+
+.infografis-slider {
+  position: relative;
+  width: 100%;
+  max-width: 420px; /* Rasio B5 Portrait (176:250), kira-kira 70% dari 600px tinggi */
+  aspect-ratio: 176 / 250;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #f4f4f4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.infografis-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.infografis-slide.active {
+  display: block;
+}
+
+.infografis-slider button {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.infografis-prev {
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.infografis-next {
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.infografis-toggle {
+  top: 10px;
+  right: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .infografis-slider {
+    max-width: 90vw;
+  }
+
+  .infografis-slider button {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
 }
 
     </style>
@@ -661,7 +698,7 @@
             </div>
           </a>
           <a
-            href="#Data"
+            href="#data"
             style="min-width: 180px; text-decoration: none"
           >
             <div class="menu-box">
@@ -922,6 +959,166 @@
       </div>
       <!-- Tutup slider-container-2col -->
     </div>
+  
+<!-- Menu Data -->
+<section id="data" class="content-section">
+  <h2 style="text-align: center; color: #3f72af">📊 Jelajahi Data Kami!</h2>
+  
+  <div class="data-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li data-id="metadata"><i class="fas fa-tags"></i> Metadata</li>
+        <li data-id="infografis2"><i class="fas fa-chart-pie"></i> Infografis</li>
+        <li data-id="dkependudukan"><i class="fas fa-users"></i> Data Kependudukan</li>
+        <li data-id="dpermata"><i class="fas fa-house-user"></i> Data Perumahan</li>
+      </ul>
+    </div>
+
+    <!-- Konten Kanan -->
+    <div class="content-area">
+      <!-- Metadata (default tampil) -->
+<div id="metadata" class="sub-content active-content">
+  <h3 style="color: #3f72af;">
+<!-- Metadata Kegiatan -->
+<button class="collapsible">
+  <i class="fas fa-tags" style="margin-right: 8px;"></i> Metadata Kegiatan
+</button>
+<div class="content">
+  <div style="text-align: center; margin-top: 16px;">
+    <iframe src="https://online.fliphtml5.com/vbeel/myia/" 
+            width="100%" height="500" frameborder="0" allowfullscreen 
+            style="max-width: 700px;"></iframe>
+  </div>
+  <div style="text-align: center; margin-top: 16px;">
+    <a href="https://online.fliphtml5.com/vbeel/myia/" target="_blank"
+       style="
+            display: inline-block;
+            background-color: #3f72af;
+            color: white;
+            padding: 3px 6px;
+            font-size: 11px;
+            text-decoration: none;
+            border-radius: 3px;
+          ">
+      <i class="fas fa-download" style="margin-right: 8px;"></i>Unduh Metadata Kegiatan (PDF)
+    </a>
+  </div>
+</div>
+
+<!-- Metadata Variabel -->
+<button class="collapsible">
+  <i class="fas fa-tags" style="margin-right: 8px;"></i> Metadata Variabel
+</button>
+<div class="content">
+  <div style="text-align: center; margin-top: 16px;">
+    <iframe src="https://online.fliphtml5.com/vbeel/myia/" 
+            width="100%" height="500" frameborder="0" allowfullscreen 
+            style="max-width: 700px;"></iframe>
+  </div>
+  <div style="text-align: center; margin-top: 16px;">
+    <a href="https://online.fliphtml5.com/vbeel/myia/" target="_blank"
+        style="
+            display: inline-block;
+            background-color: #3f72af;
+            color: white;
+            padding: 3px 6px;
+            font-size: 11px;
+            text-decoration: none;
+            border-radius: 3px;
+          ">
+    <i class="fas fa-download" style="margin-right: 8px;"></i>Unduh Metadata Variabel (PDF)
+    </a>
+  </div>
+</div>
+
+<!-- Metadata Indikator -->
+<button class="collapsible">
+  <i class="fas fa-tags" style="margin-right: 8px;"></i> Metadata Indikator
+</button>
+<div class="content">
+  <div style="text-align: center; margin-top: 16px;">
+    <iframe src="https://online.fliphtml5.com/vbeel/myia/" 
+            width="100%" height="500" frameborder="0" allowfullscreen 
+            style="max-width: 700px;"></iframe>
+  </div>
+  <div style="text-align: center; margin-top: 16px;">
+    <a href="https://online.fliphtml5.com/vbeel/myia/" target="_blank"
+            style="
+            display: inline-block;
+            background-color: #3f72af;
+            color: white;
+            padding: 3px 6px;
+            font-size: 11px;
+            text-decoration: none;
+            border-radius: 3px;
+          ">
+     <i class="fas fa-download" style="margin-right: 8px;"></i>Unduh Metadata Indikator (PDF)
+    </a>
+  </div>
+</div>
+</div>
+
+
+<!-- Infografis -->
+<div id="infografis2" class="sub-content">
+  <h3 style="color: #3f72af;">
+    <i class="fas fa-chart-pie" style="margin-right: 6px;"></i> Infografis
+  </h3>
+
+  <div class="infografis-slider" id="infografis-slider">
+    <!-- 20 dummy gambar -->
+    <img src="image1/Infografis 1.png" class="infografis-slide active">
+    <img src="image1/Infografis 2.png" class="infografis-slide">
+    <img src="image1/Infografis 3.png" class="infografis-slide">
+    <img src="image1/Infografis 4.png" class="infografis-slide">
+    <img src="image1/Infografis 5.png" class="infografis-slide">
+    <img src="image1/Infografis 6.png" class="infografis-slide">
+    <img src="image1/Infografis 7.png" class="infografis-slide">
+    <img src="image1/Infografis 8.png" class="infografis-slide">
+    <img src="image1/Infografis 9.png" class="infografis-slide">
+    <img src="image1/Infografis 10.png" class="infografis-slide">
+    <img src="image1/Infografis 11.png" class="infografis-slide">
+    <img src="image1/Infografis 12.png" class="infografis-slide">
+    <img src="image1/Infografis 13.png" class="infografis-slide">
+    <img src="image1/Infografis 14.png" class="infografis-slide">
+    <img src="image1/Infografis 15.png" class="infografis-slide">
+    <img src="image1/Infografis 16.png" class="infografis-slide">
+    <img src="image1/Infografis 17.png" class="infografis-slide">
+    <img src="image1/Infografis 18.png" class="infografis-slide">
+    <img src="image1/Infografis 19.png" class="infografis-slide">
+    <img src="image1/Infografis 20.png" class="infografis-slide">
+    <img src="image1/Infografis 21.png" class="infografis-slide">
+    <img src="image1/Infografis 22.png" class="infografis-slide">
+    <img src="image1/Infografis 23.png" class="infografis-slide">
+    <img src="image1/Infografis 24.png" class="infografis-slide">
+
+    <!-- Tombol navigasi -->
+    <button class="infografis-prev">&#10094;</button>
+    <button class="infografis-next">&#10095;</button>
+    <button class="infografis-toggle" id="infografis-toggleBtn">⏸</button>
+  </div>
+</div>
+
+
+      <!-- Data Kependudukan -->
+      <div id="dkependudukan" class="sub-content">
+        <h3 style="color: #3f72af;"><i class="fas fa-users" style="margin-right: 6px;"></i> Data Kependudukan</h3>
+        <p>Konten Kependudukan di sini</p>
+      </div>
+
+      <!-- Permata Jeriji -->
+      <div id="dpermata" class="sub-content">
+        <h3 style="color: #3f72af;"><i class="fas fa-house-user" style="margin-right: 6px;"></i> Data Permata Jeriji</h3>
+        <p>Konten Data Permata Jeriji</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
 
   <!-- Publikasi  -->
     <section id="publikasi" class="content-section">
@@ -1109,20 +1306,6 @@
         </a>
     </div>
 </div>
-
-
-
-<!-- STATISTIK -->
-          <div id="statistik" class="sub-content">
-            <h3>Data Statistik</h3>
-            <p>Angka-angka penting tentang perumahan...</p>
-          </div>
-          <div id="metadata" class="sub-content">
-            <h3>Metadata</h3>
-            <p>Metadata dududuudu...</p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Agen Statistik -->
@@ -1649,5 +1832,52 @@
   });
 </script>
 
+<script>
+let currentIndex = 0;
+let slides = document.querySelectorAll("#infografis-slider .infografis-slide");
+let interval = setInterval(nextSlide, 3000);
+let isPlaying = true;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === index);
+  });
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+}
+
+document.querySelector("#infografis-slider .infografis-next").onclick = () => {
+  nextSlide();
+};
+
+document.querySelector("#infografis-slider .infografis-prev").onclick = () => {
+  prevSlide();
+};
+
+document.querySelector("#infografis-toggleBtn").onclick = () => {
+  if (isPlaying) {
+    clearInterval(interval);
+    document.getElementById("infografis-toggleBtn").textContent = "▶️";
+  } else {
+    interval = setInterval(nextSlide, 3000);
+    document.getElementById("infografis-toggleBtn").textContent = "⏸";
+  }
+  isPlaying = !isPlaying;
+};
+
+// Inisialisasi
+showSlide(currentIndex);
+</script>
+
+
   </body>
 </html>
+
