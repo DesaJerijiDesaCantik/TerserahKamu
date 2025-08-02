@@ -522,19 +522,6 @@
 }
 
 
-.infografis-slider {
-  max-width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.infografis-slider .slides {
-  display: flex;
-  justify-content: center; /* center horizontal */
-  align-items: center;     /* center vertical */
-  height: 100%;
-}
-
 .collapsible {
   font-family: 'Poppins', sans-serif; /* Ganti font */
   font-size: 14px;                    /* Ukuran font */
@@ -566,69 +553,60 @@
   border-radius: 0 0 5px 5px;
 }
 
-.infografis-slider {
+
+.infografis-slider2 {
   position: relative;
-  width: 100%;
-  max-width: 420px; /* Rasio B5 Portrait (176:250), kira-kira 70% dari 600px tinggi */
-  aspect-ratio: 176 / 250;
+  max-width: 663px;
   margin: 20px auto;
   overflow: hidden;
-  border-radius: 12px;
-  background-color: #f4f4f4;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 663/943;
 }
 
-.infografis-slide {
+.infografis-slide2 {
   display: none;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
 }
 
-.infografis-slide.active {
+.infografis-slide2.active {
   display: block;
 }
 
-.infografis-slider button {
+.prev2, .next2, .pause2 {
+  cursor: pointer;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 12px;
+  background-color: rgba(0,0,0,0.5);
   color: white;
   border: none;
-  font-size: 20px;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
+  font-size: 18px;
   z-index: 10;
-  transition: background-color 0.3s ease;
+  border-radius: 3px;
 }
 
-.infografis-prev {
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-}
-
-.infografis-next {
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-}
-
-.infografis-toggle {
+.prev2 { left: 10px; }
+.next2 { right: 10px; }
+.pause2 {
   top: 10px;
-  right: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-@media screen and (max-width: 480px) {
-  .infografis-slider {
-    max-width: 90vw;
+/* Responsive */
+@media (max-width: 768px) {
+  .infografis-slider2 {
+    width: 95%;
   }
 
-  .infografis-slider button {
-    font-size: 16px;
+  .prev2, .next2, .pause2 {
+    font-size: 14px;
     padding: 6px 10px;
   }
 }
+
 
     </style>
 
@@ -1066,29 +1044,37 @@
     <i class="fas fa-chart-pie" style="margin-right: 6px;"></i> Infografis
   </h3>
 
-  <div class="infografis-slider" id="infografis-slider">
-    <!-- 20 dummy gambar -->
-    <img src="image1/Infografis 4.png" class="infografis-slide active">
-    <img src="image1/Infografis 5.png" class="infografis-slide">
-    <img src="image1/Infografis 6.png" class="infografis-slide">
-    <img src="image1/Infografis 7.png" class="infografis-slide">
-    <img src="image1/Infografis 8.png" class="infografis-slide">
-    <img src="image1/Infografis 9.png" class="infografis-slide">
-    <img src="image1/Infografis 10.png" class="infografis-slide">
-    <img src="image1/Infografis 11.png" class="infografis-slide">
-    <img src="image1/Infografis 12.png" class="infografis-slide">
-    <img src="image1/Infografis 13.png" class="infografis-slide">
-    <img src="image1/Infografis 14.png" class="infografis-slide">
-    <img src="image1/Infografis 15.png" class="infografis-slide">
-    <img src="image1/Infografis 16.png" class="infografis-slide">
-    <img src="image1/Infografis 17.png" class="infografis-slide">
-    <img src="image1/Infografis 18.png" class="infografis-slide">
-    <img src="image1/Infografis 19.png" class="infografis-slide">
-    <img src="image1/Infografis 20.png" class="infografis-slide">
-    <img src="image1/Infografis 21.png" class="infografis-slide">
-    <img src="image1/Infografis 22.png" class="infografis-slide">
-    <img src="image1/Infografis 23.png" class="infografis-slide">
-    <img src="image1/Infografis 24.png" class="infografis-slide">
+<div class="infografis-slider2" id="infografisSlider2">
+  <!-- Gambar 4 sampai 24 -->
+  <img src="image1/Infografis 4.png" class="infografis-slide2 active" alt="Infografis 4">
+  <img src="image1/Infografis 5.png" class="infografis-slide2" alt="Infografis 5">
+  <img src="image1/Infografis 6.png" class="infografis-slide2" alt="Infografis 6">
+  <!-- Tambahkan sampai Infografis 24 -->
+  <img src="image1/Infografis 7.png" class="infografis-slide2" alt="Infografis 7">
+  <img src="image1/Infografis 8.png" class="infografis-slide2" alt="Infografis 8">
+  <img src="image1/Infografis 9.png" class="infografis-slide2" alt="Infografis 9">
+  <img src="image1/Infografis 10.png" class="infografis-slide2" alt="Infografis 10">
+  <img src="image1/Infografis 11.png" class="infografis-slide2" alt="Infografis 11">
+  <img src="image1/Infografis 12.png" class="infografis-slide2" alt="Infografis 12">
+  <img src="image1/Infografis 13.png" class="infografis-slide2" alt="Infografis 13">
+  <img src="image1/Infografis 14.png" class="infografis-slide2" alt="Infografis 14">
+  <img src="image1/Infografis 15.png" class="infografis-slide2" alt="Infografis 15">
+  <img src="image1/Infografis 16.png" class="infografis-slide2" alt="Infografis 16">
+  <img src="image1/Infografis 17.png" class="infografis-slide2" alt="Infografis 17">
+  <img src="image1/Infografis 18.png" class="infografis-slide2" alt="Infografis 18">
+  <img src="image1/Infografis 19.png" class="infografis-slide2" alt="Infografis 19">
+  <img src="image1/Infografis 20.png" class="infografis-slide2" alt="Infografis 20">
+  <img src="image1/Infografis 21.png" class="infografis-slide2" alt="Infografis 21">
+  <img src="image1/Infografis 22.png" class="infografis-slide2" alt="Infografis 22">
+  <img src="image1/Infografis 23.png" class="infografis-slide2" alt="Infografis 23">
+  <img src="image1/Infografis 24.png" class="infografis-slide2" alt="Infografis 24">
+
+  <!-- Navigasi -->
+  <button class="prev2" onclick="plusSlide(-1)">❮</button>
+  <button class="next2" onclick="plusSlide(1)">❯</button>
+  <button class="pause2" onclick="toggleSlide()">⏸️</button>
+</div>
+
 
     <!-- Tombol navigasi -->
     <button class="infografis-prev">&#10094;</button>
@@ -1830,48 +1816,52 @@
 </script>
 
 <script>
-let currentIndex = 0;
-let slides = document.querySelectorAll("#infografis-slider .infografis-slide");
-let interval = setInterval(nextSlide, 3000);
-let isPlaying = true;
+let slideIndex2 = 0;
+let slides2 = document.querySelectorAll('.infografis-slide2');
+let isPlaying2 = true;
+let interval2;
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === index);
+  slides2.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) slide.classList.add('active');
   });
 }
 
 function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
+  slideIndex2 = (slideIndex2 + 1) % slides2.length;
+  showSlide(slideIndex2);
 }
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  showSlide(currentIndex);
+function plusSlide(n) {
+  slideIndex2 = (slideIndex2 + n + slides2.length) % slides2.length;
+  showSlide(slideIndex2);
 }
 
-document.querySelector("#infografis-slider .infografis-next").onclick = () => {
-  nextSlide();
-};
+function startSlide() {
+  interval2 = setInterval(nextSlide, 3000);
+}
 
-document.querySelector("#infografis-slider .infografis-prev").onclick = () => {
-  prevSlide();
-};
+function stopSlide() {
+  clearInterval(interval2);
+}
 
-document.querySelector("#infografis-toggleBtn").onclick = () => {
-  if (isPlaying) {
-    clearInterval(interval);
-    document.getElementById("infografis-toggleBtn").textContent = "▶️";
+function toggleSlide() {
+  if (isPlaying2) {
+    stopSlide();
+    document.querySelector('.pause2').innerText = '▶️';
   } else {
-    interval = setInterval(nextSlide, 3000);
-    document.getElementById("infografis-toggleBtn").textContent = "⏸";
+    startSlide();
+    document.querySelector('.pause2').innerText = '⏸️';
   }
-  isPlaying = !isPlaying;
-};
+  isPlaying2 = !isPlaying2;
+}
 
-// Inisialisasi
-showSlide(currentIndex);
+// Init
+document.addEventListener("DOMContentLoaded", () => {
+  showSlide(slideIndex2);
+  startSlide();
+});
 </script>
 
 
