@@ -1194,11 +1194,14 @@
 
   <!-- Download Tabel (dipindahkan ke dalam #dkependudukan) -->
   <!-- Tombol Unduh -->
-<a href="https://docs.google.com/spreadsheets/d/1BGH6eK-I5Nw-LnklcVhdwDVNYUEQ8J4MerCN_Qf3m4M/edit?usp=sharing"
-   target="_blank"
-   style="display: inline-block; background-color: #3f72af; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">
-  <i class="fas fa-download" style="margin-right: 8px;"></i>Unduh
-</a>
+<div id="downloadExcelDiv" style="text-align: right; margin-top: 10px;">
+  <a id="excelDownloadBtn"
+     href="#"
+     target="_blank"
+     style="display: inline-block; background-color: #3f72af; color: white; padding: 6px 10px; font-size: 13px; text-decoration: none; border-radius: 4px;">
+    <i class="fas fa-download" style="margin-right: 4px;"></i>Unduh Data
+  </a>
+</div>
 </div>
 
 
@@ -1935,33 +1938,33 @@ const dataSeries = {
   penduduk: {
     label: 'Jumlah Penduduk',
     data: {
-      2023: 2534,
-      2024: 2526,
+      2023: 2525,
+      2024: 2529,
       2025: 2534
     }
   },
     laki: {
     label: 'Jumlah Penduduk Laki-Laki',
     data: {
-      2023: 2534,
-      2024: 2526,
-      2025: 2534
+      2023: 1310,
+      2024: 1324,
+      2025: 1337
     }
   },
     perempuan: {
     label: 'Jumlah Penduduk Perempuan',
     data: {
-      2023: 2534,
-      2024: 2526,
-      2025: 2534
+      2023: 1215,
+      2024: 1205,
+      2025: 1197
     }
   },
   keluarga: {
     label: 'Jumlah Keluarga',
     data: {
-      2023: 815,
-      2024: 869,
-      2025: 819
+      2023: 789,
+      2024: 802,
+      2025: 815
     }
   },
   wajibbljr: {
@@ -2073,21 +2076,42 @@ function updateContent() {
   document.getElementById('sumberTabel').textContent = sumberText;
 }
 
-  function downloadSelected() {
-    const selectedValue = document.getElementById("dataSelector").value;
+// Daftar spreadsheet untuk masing-masing jenis data
+  const spreadsheetLinks = {
+    penduduk: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+    laki: "https://docs.google.com/spreadsheets/d/1R12KlPFySqW3QYH4__ROdrrZaZ1DT5ehPIkuGzp6I_s/edit?usp=sharing",
+    perempuan: "https://docs.google.com/spreadsheets/d/1AcsyxbVr8W09fgZuEDk0u5N6ieTQe_Iv386uYDPzSE0/edit?usp=sharing",
+    keluarga: "https://docs.google.com/spreadsheets/d/1tsBAI1zhiVVUoytsieuwt11Uq1zs9WlZFWJAtTpO0Qs/edit?usp=sharing",
+    wajibbljr: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+    sd: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+    smp: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+    sma: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+    menganggur: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+    bekerja: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+    tani: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing"
+  };
 
-    const url = `https://raw.githubusercontent.com/DesaJerijiDesaCantik/TerserahKamu/main/DataPenduduk/${selectedValue}.xlsx`;
+  const selector = document.getElementById("dataSelector");
+  const downloadBtn = document.getElementById("excelDownloadBtn");
 
-    // Buat elemen <a> untuk trigger download
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${selectedValue}.xlsx`;
-    a.style.display = "none";
+  // Ubah link download setiap kali pilihan dropdown berubah
+  selector.addEventListener("change", function () {
+    const selectedValue = selector.value;
+    const link = spreadsheetLinks[selectedValue];
 
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
+    if (link) {
+      downloadBtn.href = link;
+      downloadBtn.style.display = "inline-block";
+    } else {
+      downloadBtn.href = "#";
+      downloadBtn.style.display = "none";
+    }
+  });
+
+  // Trigger manual saat pertama kali halaman dimuat
+  document.addEventListener("DOMContentLoaded", function () {
+    selector.dispatchEvent(new Event("change"));
+  });
 
 document.getElementById('dataSelector').addEventListener('change', updateContent);
 
