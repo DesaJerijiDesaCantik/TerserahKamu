@@ -1120,8 +1120,8 @@
   <img src="image1/Infografis 8.png" class="infografis-slide2" alt="Infografis 8">
   <img src="image1/Infografis 9.png" class="infografis-slide2" alt="Infografis 9">
   <img src="image1/Infografis 10.png" class="infografis-slide2" alt="Infografis 10">
-  <img src="image1/Infografis 11.png" class="infografis-slide2" alt="Infografis 11">
-  <img src="image1/Infografis 12.png" class="infografis-slide2" alt="Infografis 12">
+  <img src="image1/Infografis 11 Rev.png" class="infografis-slide2" alt="Infografis 11">
+  <img src="image1/Infografis 12 Rev.png" class="infografis-slide2" alt="Infografis 12">
   <img src="image1/Infografis 13.png" class="infografis-slide2" alt="Infografis 13">
   <img src="image1/Infografis 14.png" class="infografis-slide2" alt="Infografis 14">
   <img src="image1/Infografis 15.png" class="infografis-slide2" alt="Infografis 15">
@@ -2053,6 +2053,21 @@
   startSlide2();
 </script>
 
+
+<script>
+  const coll = document.querySelectorAll(".collapsible");
+  coll.forEach(btn => {
+    btn.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  });
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
