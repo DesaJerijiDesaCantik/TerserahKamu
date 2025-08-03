@@ -1216,14 +1216,97 @@
 </div>
 </div>
 
+<!-- PERMATA JERIJI -->
+<div id="dpermata" class="sub-content">
+  <h3 style="color: #3f72af;"><i class="fas fa-house-user" style="margin-right: 6px;"></i> Data Perumahan</h3>
 
+  <!-- Paragraf Penjelas -->
+  <p style="margin-top: 10px; margin-bottom: 20px; font-size: 14px; color: #555;">
+    Data ini bersumber dari <strong><em>Pendataan Rumah Masyarakat Secara Terpadu Desa Jeriji</em></strong> atau
+    <strong><em>Permata Jeriji</em></strong> yang dilaksanakan pada 20 Mei hingga 19 Juni tahun 2025.
+  </p>
 
-      <!-- Permata Jeriji -->
-      <div id="dpermata" class="sub-content">
-        <h3 style="color: #3f72af;"><i class="fas fa-house-user" style="margin-right: 6px;"></i> Data Perumahan</h3>
-        <p>Konten Data Permata Jeriji</p>
-      </div>
-    </div>
+<!-- Dropdown -->
+<div style="margin-bottom: 30px; background-color: #f4f8fc; padding: 20px; border-radius: 10px; border: 1px solid #dbe9f4;">
+  <label for="permataSelector" style="font-weight: bold; color: #112d4e;">📂 Pilih Jenis Data:</label><br />
+  <select id="permataSelector" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; color: #112d4e;">
+    <option value="jrumah">Jumlah Bumbung Rumah Menurut Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="jkeluarga">Jumlah Keluarga Menurut Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="jpen">Jumlah Penduduk Menurut Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="prtlh">Persentase Rumah Tidak Layak Huni di Desa Jeriji Tahun 2025</option>
+    <option value="drtlh">Jumah Rumah Tidak Layak Huni Berdasarkan Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="pspace">Persentase Rumah yang Tidak Memenuhi Syarat <em>Sufficient Living Space</em> di Desa Jeriji Tahun 2025</option>
+    <option value="pktb">Persentase Tempat Tinggal yang Memenuhi Syarat Ketahanan Bangunan di Desa Jeriji Tahun 2025</option>
+    <option value="dktb">Jumah Tempat Tinggal yang Memenuhi Syarat Ketahanan Bangunan Berdasarkan Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="psanitasi">Persentase Rumah Tangga yang Memiliki Akses Terhadap Sanitasi Layak di Desa Jeriji Tahun 2025</option>
+    <option value="dsanitasi">Jumah Rumah Tangga yang Memiliki Akses Terhadap Sanitasi Layak Berdasarkan Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="dairlayak">Persentase Rumah Tangga yang Memiliki Akses Terhadap Air Minum Layak di Desa Jeriji Tahun 2025</option>
+    <option value="pairlayak">Jumah Rumah Tangga yang Memiliki Akses Terhadap Air Minum Layak Berdasarkan Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="pairaman">Persentase Rumah Tangga yang Memiliki Akses Terhadap Air Minum Aman di Desa Jeriji Tahun 2025</option>
+    <option value="dairaman">Jumah Rumah Tangga yang Memiliki Akses Terhadap Air Minum Aman Berdasarkan Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="pairpermu">Persentase Rumah Tangga yang Memiliki Akses Terhadap Air Minum Bukan Air Permukaan di Desa Jeriji Tahun 2025</option>
+    <option value="pairlayakdasar">Persentase Rumah Tangga yang Memiliki Akses Terhadap Air Minum Layak Dasar di Desa Jeriji Tahun 2025</option> 
+    <option value="pairminum">Persentase Rumah Tangga Berdasarkan Sumber Air Minum di Desa Jeriji Tahun 2025</option>  
+    <option value="paircuci">Persentase Rumah Tangga Berdasarkan Sumber Air Mandi/Cuci/dll di Desa Jeriji Tahun 2025</option>  
+    <option value="pbab">Persentase Rumah Tangga Berdasarkan Kepemilikan Fasilitas Buang Air Besar di Desa Jeriji Tahun 2025</option>
+    <option value="pjab">Jumlah Rumah Tangga Berdasarkan Kepemilikan Fasilitas Buang Air Besar dan Dusun di Desa Jeriji Tahun 2025</option>   
+    <option value="prata">Rata-Rata Keluarga yang Tinggal dalam Satu Bangunan dan Rata-Rata Jumlah Penghuni Rumah di Desa Jeriji Tahun 2025</option>     
+    <option value="pln">Persentase Rumah Tangga yang Menggunakan Listrik PLN di Desa Jeriji Tahun 2025</option>
+    <option value="pstatusbang">Persentase Rumah Tangga Berdasarkan Status Penguasaan Bangunan Tempat Tinggal di Desa Jeriji Tahun 2025</option>
+    <option value="jstatusbang">Jumlah Rumah Tangga Berdasarkan Status Penguasaan Bangunan Tempat Tinggal dan Dusun di Desa Jeriji Tahun 2025</option> 
+    <option value="pbuktibang">Persentase Rumah Tangga Berdasarkan Bukti Penguasaan Bangunan Tempat Tinggal di Desa Jeriji Tahun 2025</option>
+    <option value="jbuktisbang">Jumlah Rumah Tangga Berdasarkan Status Penguasaan Bangunan Tempat Tinggal dan Dusun di Desa Jeriji Tahun 2025</option> 
+    <option value="patap">Persentase Bangunan Tempat Tinggal Berdasarkan Jenis Atap Terluas di Desa Jeriji Tahun 2025</option>
+    <option value="jatap">Jumlah Bangunan Tempat Tinggal dengan Jenis Atap Terlas Asbes Berdasarkan Dusun di Desa Jeriji Tahun 2025</option>
+    <option value="pdinding">Persentase Bangunan Tempat Tinggal Berdasarkan Jenis Dinding Terluas di Desa Jeriji Tahun 2025</option>
+    <option value="jdindidng">Distribusi Bangunan Tempat Tinggal Berdasarkan Jenis Dinding Terluas dan Wilayah Dusun di Desa Jeriji Tahun 2025 </option>
+    <option value="plantai">Persentase Bangunan Tempat Tinggal Berdasarkan Jenis Lantai Terluas di Desa Jeriji Tahun 2025</option>
+    <option value="jlantai">Distribusi Bangunan Tempat Tinggal dengan Lantai Keramik dan Semen Menurut Dusun Tahun 2025</option>
+    <option value="psakit">Persentase Penduduk dengan Penyakit Menahun, Lansia, dan Penyandang Disabilitas di Desa Jeriji Tahun 2025</option> 
+
+  </select>
+</div>
+
+<!-- Judul Grafik -->
+<h4 id="judulPermata" style="color: #112d4e; text-align: center; margin-bottom: 10px;">Memuat data...</h4>
+
+<!-- Grafik -->
+<div id="pieContainer" style="display: flex; flex-direction: column; align-items: center; margin: 0 auto 10px;">
+  <canvas id="piePermata" width="600" height="250"></canvas>
+  <p style="font-size: 12px; color: #555; margin-top: 10px; display:flex; text-align: left;">Sumber: Permata Jeriji tahun 2025</p>
+</div>
+
+<!-- Judul Tabel -->
+<h4 id="judulTabelPermata" style="margin-top: 40px; color: #112d4e; text-align: center;"></h4>
+
+<!-- Tabel -->
+<div id="tabelContainer" style="overflow-x: auto;">
+  <table id="tabelPermata" border="1" style="width: 100%; font-size: 14px; margin-top: 15px; border-collapse: collapse; text-align: center;">
+    <thead style="background-color: #dbe9f4;">
+      <tr><th>Kategori</th><th>Jumlah</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- Sumber -->
+<p style="font-size: 12px; color: #555; text-align: left; margin-top: 10px;">
+  Sumber: Permata Jeriji 2025
+</p>
+
+<!-- Tombol Unduh -->
+<div id="downloadPermataDiv" style="text-align: right; margin-top: 10px;">
+  <div style="font-size: 11px; color: #555; margin-bottom: 4px;">
+    (klik kanan dan buka di tab baru untuk unduh)
+  </div>
+  <a id="excelDownloadPermataBtn"
+     href="#"
+     target="_blank"
+     style="display: inline-block; background-color: #3f72af; color: white; padding: 6px 10px; font-size: 13px; text-decoration: none; border-radius: 4px;">
+    <i class="fas fa-download" style="margin-right: 4px;"></i>Unduh Data
+  </a>
+</div>
+</div>
   </div>
 </section>
 
@@ -2146,6 +2229,274 @@ document.getElementById('dataSelector').addEventListener('change', updateContent
 // Inisialisasi awal
 updateContent();
 </script>
+
+
+<!-- DATA PERMATA JERIJI -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const permataData = {
+    jrumah: {
+      type: "bar",
+      data: { 
+        "Dusun Air Saman": 95, 
+        "Dusun Air Tebat": 98,
+        "Dusun Air Tembuni": 128, 
+        "Dusun Air Dentelur": 138,
+        "Dusun Air Besar Tengah": 177
+       }
+    },
+    jkeluarga: {
+      type: "bar",
+      data: { 
+        "Dusun Air Saman": 126, 
+        "Dusun Air Tebat": 115,
+        "Dusun Air Tembuni": 143, 
+        "Dusun Air Dentelur": 164,
+        "Dusun Air Besar Tengah": 219
+       }
+    },
+    jpen: {
+      type: "bar",
+      data: { 
+        "Dusun Air Saman": 375, 
+        "Dusun Air Tebat": 316,
+        "Dusun Air Tembuni": 459, 
+        "Dusun Air Dentelur": 510,
+        "Dusun Air Besar Tengah": 582
+       }
+    },
+
+
+    air: {
+      type: "pie",
+      data: { "Sumur Gali": 120, "PDAM": 130 }
+    },
+    listrik: {
+      type: "pie",
+      data: { "PLN": 190, "Non-PLN": 60 }
+    },
+    atap: {
+      type: "bar",
+      data: { "Genteng": 100, "Seng": 80, "Asbes": 25, "Rumbia": 10, "Lainnya": 5 }
+    },
+    sanitasi: {
+      type: "bar-multi",
+      data: {
+        labels: ["Dusun 1", "Dusun 2", "Dusun 3", "Dusun 4", "Dusun 5"],
+        datasets: [
+          {
+            label: "Yes",
+            backgroundColor: "#3f72af",
+            data: [40, 38, 35, 32, 45]
+          },
+          {
+            label: "No",
+            backgroundColor: "#f67280",
+            data: [10, 12, 15, 18, 5]
+          }
+        ]
+      }
+    }
+  };
+
+  const spreadsheetLinksPermata = {
+jrumah:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+jkeluarga:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+jpen:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+prtlh:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+drtlh:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pspace:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pktb:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+dktb:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+psanitasi:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+dsanitasi:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+dairlayak:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pairlayak:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pairaman:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+dairaman:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pairpermu:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pairlayakdasar:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pairminum:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+paircuci:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pbab:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pjab:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+prata:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pln:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pstatusbang:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+jstatusbang:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pbuktibang:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+jbuktisbang:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+patap:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+jatap:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+pdinding:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+jdindidng:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+plantai:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+jlantai:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+psakit:"https://docs.google.com/spreadsheets/d/13JGflfrGY1ET9mU7u6GoAprtEwq171MD/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true"
+
+
+  };
+
+  const permataSelector = document.getElementById("permataSelector");
+  const pieContainer = document.getElementById("pieContainer");
+  const judulPermata = document.getElementById("judulPermata");
+  const judulTabelPermata = document.getElementById("judulTabelPermata");
+  const tabelPermata = document.getElementById("tabelPermata").getElementsByTagName("tbody")[0];
+  const excelDownloadPermataBtn = document.getElementById("excelDownloadPermataBtn");
+
+  let chart;
+
+  function renderChart(data, type = 'pie') {
+    const canvas = document.getElementById("piePermata");
+    const ctx = canvas.getContext("2d");
+
+    if (chart) chart.destroy();
+
+    if (type === "pie") {
+      canvas.width = 240;
+      canvas.height = 240;
+
+      const labels = Object.keys(data);
+      const values = Object.values(data);
+      const colors = ['#3f72af', '#f67280', '#f8b195', '#6c5b7b', '#355c7d', '#c06c84'];
+
+      chart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: labels,
+          datasets: [{
+            data: values,
+            backgroundColor: colors.slice(0, labels.length)
+          }]
+        },
+        options: {
+          responsive: false,
+          plugins: {
+            datalabels: {
+              formatter: (value, context) => {
+                const dataset = context.chart.data.datasets[0].data;
+                const total = dataset.reduce((a, b) => a + b, 0);
+                const percentage = (value / total * 100).toFixed(2);
+                return percentage + "%";
+              },
+              color: "#fff",
+              font: {
+                weight: "bold",
+                size: 12
+              }
+            },
+            legend: {
+              display: true
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
+
+    } else if (type === "bar-multi") {
+      canvas.width = 700;
+      canvas.height = 400;
+
+      chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: data.labels,
+          datasets: data.datasets
+        },
+        options: {
+          responsive: false,
+          scales: {
+            x: { stacked: false },
+            y: { beginAtZero: true }
+          },
+          plugins: {
+            legend: { display: true }
+          }
+        }
+      });
+
+    } else {
+      canvas.width = 600;
+      canvas.height = 350;
+
+      const labels = Object.keys(data);
+      const values = Object.values(data);
+      const colors = ['#3f72af', '#f67280', '#f8b195', '#6c5b7b', '#355c7d', '#c06c84'];
+
+      chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [{
+            label: "Jumlah",
+            data: values,
+            backgroundColor: colors.slice(0, labels.length)
+          }]
+        },
+        options: {
+          responsive: false,
+          scales: {
+            y: { beginAtZero: true }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+  }
+
+  function renderTable(data, type) {
+    tabelPermata.innerHTML = "";
+    if (type === "bar-multi") {
+      const labels = data.labels;
+      const yesData = data.datasets[0].data;
+      const noData = data.datasets[1].data;
+
+      for (let i = 0; i < labels.length; i++) {
+        const row = `<tr><td>${labels[i]} - Yes</td><td>${yesData[i]}</td></tr>
+                     <tr><td>${labels[i]} - No</td><td>${noData[i]}</td></tr>`;
+        tabelPermata.innerHTML += row;
+      }
+    } else {
+      for (let kategori in data) {
+        const row = `<tr><td>${kategori}</td><td>${data[kategori]}</td></tr>`;
+        tabelPermata.innerHTML += row;
+      }
+    }
+  }
+
+  permataSelector.addEventListener("change", function () {
+    const val = this.value;
+    const selected = permataData[val];
+    const link = spreadsheetLinksPermata[val];
+
+    if (!selected) return;
+
+    const label = this.options[this.selectedIndex].text;
+    judulPermata.textContent = label;
+    judulTabelPermata.textContent = "Tabel " + label ;
+
+    renderChart(selected.data, selected.type);
+    renderTable(selected.data, selected.type);
+
+    if (link) {
+      excelDownloadPermataBtn.href = link;
+      document.getElementById("downloadPermataDiv").style.display = "block";
+    } else {
+      document.getElementById("downloadPermataDiv").style.display = "none";
+    }
+  });
+
+  // Trigger awal
+  permataSelector.dispatchEvent(new Event('change'));
+});
+</script>
+
+
 
 
 
