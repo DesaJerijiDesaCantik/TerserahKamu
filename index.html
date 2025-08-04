@@ -1148,32 +1148,31 @@
     <i class="fas fa-chart-pie" style="margin-right: 6px;"></i> Data Kependudukan
   </h3>
 
-  <!-- Paragraf Penjelas -->
   <p style="margin-top: 10px; margin-bottom: 20px; font-size: 14px; color: #555;">
-    Data Kependudukan ini bersumber dari <em>Profil Desa Jeriji</em> Tahun 2023, 2024, dan 2025.
+    Data Kependudukan ini bersumber dari <em>Profil Desa Jeriji</em>
   </p>
 
-  <!-- Box Pilihan Data -->
+  <!-- Pilihan Jenis Data -->
   <div style="margin-bottom: 30px; display: flex; gap: 30px; flex-wrap: wrap; background-color: #f4f8fc; padding: 20px; border-radius: 10px; border: 1px solid #dbe9f4;">
     <div>
       <label for="dataSelector" style="font-weight: bold; color: #112d4e">📂 Pilih Jenis Data:</label><br />
       <select id="dataSelector" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; color: #112d4e">
-        <option value="penduduk">Jumlah Penduduk</option>
-        <option value="laki">Jumlah Penduduk Laki-Laki</option>
-        <option value="perempuan">Jumlah Penduduk Perempuan</option>
-        <option value="keluarga">Jumlah Keluarga</option>
-        <option value="wajibbljr">Jumlah Penduduk yang Telah Mengikuti Wajib Belajar 9 Tahun</option>
-        <option value="sd">Jumlah Penduduk Lulusan SD</option>
-        <option value="smp">Jumlah Penduduk Lulusan SMP</option>
-        <option value="sma">Jumlah Penduduk Lulusan SMA</option>
-        <option value="menganggur">Jumlah Penduduk yang Tidak Bekerja</option>
-        <option value="bekerja">Jumlah Penduduk yang Bekerja</option>
-        <option value="tani">Penduduk Petani dan Buruh Tani</option>
+        <option value="penduduk">Jumlah Penduduk di Desa Jeriji Tahun 2023-2025</option>
+        <option value="laki">Jumlah Penduduk Laki-Laki di Desa Jeriji Tahun 2023-2025</option>
+        <option value="perempuan">Jumlah Penduduk Perempuan di Desa Jeriji Tahun 2023-2025</option>
+        <option value="keluarga">Jumlah Keluarga di Desa Jeriji Tahun 2023-2025</option>
+        <option value="tujuh15">Jumlah Penduduk Usia 7-15 Tahun di Desa Jeriji Tahun 2022-2024</option>
+        <option value="tujuh15sklh">Jumlah Penduduk Usia 7-15 Tahun yang Masih Bersekolah di Desa Jeriji Tahun 2022-2024</option>
+        <option value="tujuh15Tsklh">Jumlah Penduduk Usia 7-15 Tahun yang Tidak Bersekolah di Desa Jeriji Tahun 2022-2024</option>
+        <option value="prasejahtera">Jumlah Keluarga Prasejahtera di Desa Jeriji Tahun 2022-2024</option>
+        <option value="gurutk">Jumlah Guru TK dan Kelompok Bermain Anak di Desa Jeriji Tahun 2022-2024</option>
+        <option value="gurusd">Jumlah Guru SD/Sederajat Bermain Anak di Desa Jeriji Tahun 2022-2024</option>
+        <option value="gurusltp">Jumlah Guru SLTP/Sederajat Bermain Anak di Desa Jeriji Tahun 2022-2024</option>
       </select>
     </div>
   </div>
 
-  <!-- Judul Utama Dinamis -->
+  <!-- Judul Dinamis -->
   <h4 id="judulUtama" style="color: #112d4e; text-align: center; margin-bottom: 10px;"></h4>
 
   <!-- Grafik -->
@@ -1187,7 +1186,7 @@
   <!-- Judul Tabel -->
   <h4 id="judulTabel" style="margin-top: 40px; color: #112d4e; text-align: center;"></h4>
 
-  <!-- Tabel Responsive -->
+  <!-- Tabel -->
   <div style="overflow-x: auto;">
     <table id="tabelPenduduk" border="1" style="width: 100%; font-size: 14px; min-width: 400px; margin-top: 15px; border-collapse: collapse; text-align: center;">
       <thead style="background-color: #dbe9f4;">
@@ -1203,20 +1202,20 @@
   <!-- Sumber Tabel -->
   <p id="sumberTabel" style="font-size: 12px; color: #555; text-align: left; margin-top: 5px;"></p>
 
-  <!-- Download Tabel (dipindahkan ke dalam #dkependudukan) -->
   <!-- Tombol Unduh -->
-<div id="downloadExcelDiv" style="text-align: right; margin-top: 10px;">
-  <div style="font-size: 11px; color: #555; margin-bottom: 4px;">
-    (klik kanan dan buka di tab baru untuk unduh)
+  <div id="downloadExcelDiv" style="text-align: right; margin-top: 10px;">
+    <div style="font-size: 11px; color: #555; margin-bottom: 4px;">
+      (klik kanan dan buka di tab baru untuk unduh)
+    </div>
+    <a id="excelDownloadBtn"
+       href="#"
+       target="_blank"
+       style="display: inline-block; background-color: #3f72af; color: white; padding: 6px 10px; font-size: 13px; text-decoration: none; border-radius: 4px;">
+      <i class="fas fa-download" style="margin-right: 4px;"></i>Unduh Data
+    </a>
   </div>
-  <a id="excelDownloadBtn"
-     href="#"
-     target="_blank"
-     style="display: inline-block; background-color: #3f72af; color: white; padding: 6px 10px; font-size: 13px; text-decoration: none; border-radius: 4px;">
-    <i class="fas fa-download" style="margin-right: 4px;"></i>Unduh Data
-  </a>
 </div>
-</div>
+
 
 <!-- PERMATA JERIJI -->
 <div id="dpermata" class="sub-content">
@@ -2033,100 +2032,72 @@
 const dataSeries = {
   penduduk: {
     label: 'Jumlah Penduduk',
-    data: {
-      2023: 2525,
-      2024: 2529,
-      2025: 2534
-    }
+    years: ['2023', '2024', '2025'],
+    data: { 2023: 2525, 2024: 2529, 2025: 2534 }
   },
-    laki: {
+  laki: {
     label: 'Jumlah Penduduk Laki-Laki',
-    data: {
-      2023: 1310,
-      2024: 1324,
-      2025: 1337
-    }
+    years: ['2023', '2024', '2025'],
+    data: { 2023: 1310, 2024: 1324, 2025: 1337 }
   },
-    perempuan: {
+  perempuan: {
     label: 'Jumlah Penduduk Perempuan',
-    data: {
-      2023: 1215,
-      2024: 1205,
-      2025: 1197
-    }
+    years: ['2023', '2024', '2025'],
+    data: { 2023: 1215, 2024: 1205, 2025: 1197 }
   },
   keluarga: {
     label: 'Jumlah Keluarga',
-    data: {
-      2023: 789,
-      2024: 802,
-      2025: 815
-    }
+    years: ['2023', '2024', '2025'],
+    data: { 2023: 789, 2024: 802, 2025: 815 }
   },
-  wajibbljr: {
-    label: 'Jumlah Penduduk yang Telah Mengikuti Wajib Belajar 9 Tahun',
-    data: {
-      2023: 364,
-      2024: 364,
-      2025: 364
-    }
+  tujuh15: {
+    label: 'Jumlah Penduduk Usia 7-15 Tahun',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 395, 2023: 404, 2024: 404 }
   },
-  sd: {
-    label: 'Jumlah Penduduk Lulusan Sekolah Dasar (SD)/Sederajat',
-    data: {
-      2023: 364,
-      2024: 364,
-      2025: 364
-    }
+  tujuh15sklh: {
+    label: 'Jumlah Penduduk Usia 7-15 Tahun yang Masih Bersekolah',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 393, 2023: 403, 2024: 403 }
   },
-  smp: {
-    label: 'Jumlah Penduduk Lulusan Sekolah Menengah Pertama (SMP)/Sederajat',
-    data: {
-      2023: 364,
-      2024: 364,
-      2025: 364
-    }
+  tujuh15Tsklh: {
+    label: 'Jumlah Penduduk Usia 7-15 Tahun yang Tidak Bersekolah',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 2, 2023: 1, 2024: 1 }
   },
-  sma: {
-    label: 'Jumlah Penduduk Lulusan Sekolah Menengah Atas (SMA)/Sederajat',
-    data: {
-      2023: 364,
-      2024: 364,
-      2025: 364
-    }
+  tujuh15Tsklh: {
+    label: 'Jumlah Penduduk Usia 7-15 Tahun yang Tidak Bersekolah',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 2, 2023: 1, 2024: 1 }
   },
-  menganggur: {
-    label: 'Jumlah Penduduk Tidak Bekerja/Menganggur',
-    data: {
-      2023: 364,
-      2024: 364,
-      2025: 364
-    }
+  prasejahtera: {
+    label: 'Jumlah Keluarga Prasejahtera',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 38, 2023: 38, 2024: 38 }
   },
-  bekerja: {
-    label: 'Jumlah Penduduk yang Bekerja',
-    data: {
-      2023: 166,
-      2024: 176,
-      2025: 185
-    }
+  gurutk: {
+    label: 'Jumlah Guru TK',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 3, 2023: 3, 2024: 3 }
   },
-  tani: {
-    label: 'Jumlah Penduduk yang Bekerja Sebagai Petani dan Buruh Tani',
-    data: {
-      2023: 166,
-      2024: 176,
-      2025: 185
-    }
+  gurusd: {
+    label: 'Jumlah Guru SD/Sederajat',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 20, 2023: 20, 2024: 20 }
+  },
+  gurusltp: {
+    label: 'Jumlah Guru SLTP/Sederajat',
+    years: ['2022', '2023', '2024'],
+    data: { 2022: 20, 2023: 20, 2024: 20 }
   },
 };
 
-// Siapkan chart
+// Chart.js setup
 const ctx = document.getElementById('grafikPenduduk').getContext('2d');
 let chart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['2023', '2024', '2025'],
+    labels: [],
     datasets: [{
       label: '',
       data: [],
@@ -2145,74 +2116,61 @@ let chart = new Chart(ctx, {
   }
 });
 
+// Link spreadsheet
+const spreadsheetLinks = {
+  penduduk: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
+  laki: "https://docs.google.com/spreadsheets/d/1R12KlPFySqW3QYH4__ROdrrZaZ1DT5ehPIkuGzp6I_s/edit?usp=sharing",
+  perempuan: "https://docs.google.com/spreadsheets/d/1AcsyxbVr8W09fgZuEDk0u5N6ieTQe_Iv386uYDPzSE0/edit?usp=sharing",
+  keluarga: "https://docs.google.com/spreadsheets/d/1tsBAI1zhiVVUoytsieuwt11Uq1zs9WlZFWJAtTpO0Qs/edit?usp=sharing",
+  tujuh15: "https://docs.google.com/spreadsheets/d/1kMHqgkjvG752VeoJws3yDm074WDuS1CU/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+  tujuh15sklh: "https://docs.google.com/spreadsheets/d/1kMHqgkjvG752VeoJws3yDm074WDuS1CU/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+  tujuh15Tsklh: "https://docs.google.com/spreadsheets/d/1kMHqgkjvG752VeoJws3yDm074WDuS1CU/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+  prasejahtera: "https://docs.google.com/spreadsheets/d/1mrdVwD1ih-DrCSvfesTX7Eg9RXnb2AzX/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+  gurutk: "https://docs.google.com/spreadsheets/d/1Rep0mQj2cBhdmcEHUFUCmSkxr7pgWdnN/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+  gurusd: "https://docs.google.com/spreadsheets/d/1Rep0mQj2cBhdmcEHUFUCmSkxr7pgWdnN/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true",
+  gurusltp: "https://docs.google.com/spreadsheets/d/1Rep0mQj2cBhdmcEHUFUCmSkxr7pgWdnN/edit?usp=sharing&ouid=109616360271144831384&rtpof=true&sd=true"
+};
+
 function updateContent() {
   const selectedData = document.getElementById('dataSelector').value;
   const dataset = dataSeries[selectedData];
+  const years = dataset.years;
 
   // Update grafik
+  chart.data.labels = years;
   chart.data.datasets[0].label = dataset.label;
-  chart.data.datasets[0].data = Object.values(dataset.data);
+  chart.data.datasets[0].data = years.map(year => dataset.data[year]);
   chart.update();
 
-  // Judul grafik dan tabel
-  document.getElementById('judulUtama').innerText = `${dataset.label} di Desa Jeriji Tahun 2023–2025`;
-  document.getElementById('judulTabel').innerText = `Tabel ${dataset.label} di Desa Jeriji Tahun 2023–2025`;
+  // Judul
+  document.getElementById('judulUtama').innerText = `${dataset.label} di Desa Jeriji Tahun ${years[0]}–${years[years.length - 1]}`;
+  document.getElementById('judulTabel').innerText = `Tabel ${dataset.label} di Desa Jeriji Tahun ${years[0]}–${years[years.length - 1]}`;
 
-  // Update tabel
+  // Tabel
   const tbody = document.querySelector('#tabelPenduduk tbody');
   tbody.innerHTML = '';
-  for (let year of ['2023', '2024', '2025']) {
+  for (let year of years) {
     const row = `<tr><td>${year}</td><td>${dataset.data[year]}</td></tr>`;
     tbody.insertAdjacentHTML('beforeend', row);
   }
 
-  // Update sumber
-  const sumberText = `Sumber: Profil Desa Jeriji Tahun 2023, 2024, dan 2025`;
+  // Sumber
+  const sumberText = `Sumber: Profil Desa Jeriji Tahun ${years.join(', ').replace(/, ([^,]*)$/, ' dan $1')}`;
   document.getElementById('sumberGrafik').textContent = sumberText;
   document.getElementById('sumberTabel').textContent = sumberText;
+
+  // Update link unduh
+  const downloadBtn = document.getElementById("excelDownloadBtn");
+  const link = spreadsheetLinks[selectedData];
+  downloadBtn.href = link || "#";
+  downloadBtn.style.display = link ? "inline-block" : "none";
 }
 
-// Daftar spreadsheet untuk masing-masing jenis data
-  const spreadsheetLinks = {
-    penduduk: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
-    laki: "https://docs.google.com/spreadsheets/d/1R12KlPFySqW3QYH4__ROdrrZaZ1DT5ehPIkuGzp6I_s/edit?usp=sharing",
-    perempuan: "https://docs.google.com/spreadsheets/d/1AcsyxbVr8W09fgZuEDk0u5N6ieTQe_Iv386uYDPzSE0/edit?usp=sharing",
-    keluarga: "https://docs.google.com/spreadsheets/d/1tsBAI1zhiVVUoytsieuwt11Uq1zs9WlZFWJAtTpO0Qs/edit?usp=sharing",
-    wajibbljr: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
-    sd: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
-    smp: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
-    sma: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
-    menganggur: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
-    bekerja: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing",
-    tani: "https://docs.google.com/spreadsheets/d/1LeR8mqoLRkrsduh2Kz84lT4e3R0SfUar2cO20uh79qE/edit?usp=sharing"
-  };
-
-  const selector = document.getElementById("dataSelector");
-  const downloadBtn = document.getElementById("excelDownloadBtn");
-
-  // Ubah link download setiap kali pilihan dropdown berubah
-  selector.addEventListener("change", function () {
-    const selectedValue = selector.value;
-    const link = spreadsheetLinks[selectedValue];
-
-    if (link) {
-      downloadBtn.href = link;
-      downloadBtn.style.display = "inline-block";
-    } else {
-      downloadBtn.href = "#";
-      downloadBtn.style.display = "none";
-    }
-  });
-
-  // Trigger manual saat pertama kali halaman dimuat
-  document.addEventListener("DOMContentLoaded", function () {
-    selector.dispatchEvent(new Event("change"));
-  });
-
+// Inisialisasi
 document.getElementById('dataSelector').addEventListener('change', updateContent);
-
-// Inisialisasi awal
-updateContent();
+document.addEventListener('DOMContentLoaded', () => {
+  updateContent();
+});
 </script>
 
 
